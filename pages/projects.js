@@ -1,9 +1,9 @@
-import React from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import ProjectCard from '../components/Projectcard';
-import { FaGithub, FaLock, FaExternalLinkAlt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import React from 'react';
+import { FaGithub, FaLock } from 'react-icons/fa';
+import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
+import ProjectCard from '../components/ProjectCard';
 
 export default function Projects() {
     const projects = [
