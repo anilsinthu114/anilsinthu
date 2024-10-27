@@ -1,16 +1,16 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { motion, useViewportScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { scrollY } = useViewportScroll();
+  const { scrollY } = useScroll();
   const backgroundColor = useTransform(
     scrollY,
     [0, 100],
-    ['rgba(31, 41, 55, 0.5)', 'rgba(31, 41, 55, 0.95)']
+    ['rgba(31, 41, 55, 0.95)', 'rgba(31, 41, 55, 0.5)']
   );
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -37,7 +37,7 @@ const Navbar = () => {
     <motion.nav
       style={{ backgroundColor }}
       className={`fixed top-0 left-0 right-0 z-50 text-white p-4 shadow-lg transition-all duration-300 ${
-        isScrolled ? 'backdrop-blur-md' : ''
+        isScrolled ? '' : 'backdrop-blur-md'
       }`}
     >
       <div className="container mx-auto flex justify-between items-center">

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaHeart, FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import Link from 'next/link';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -10,6 +11,16 @@ const Footer = () => {
     { icon: FaEnvelope, url: 'mailto:anilsinthu114@gmail.com', label: 'Email' },
   ];
 
+  const navLinks = [
+    { href: '/', label: 'Home' },
+    { href: '/about', label: 'About' },
+    { href: '/projects', label: 'Projects' },
+    { href: '/experience', label: 'Experience' },
+    { href: '/skills', label: 'Skills' },
+    { href: '/certifications', label: 'Certifications' },
+    { href: '/contact', label: 'Contact' }
+  ];
+
   return (
     <motion.footer
       initial={{ opacity: 0, y: 20 }}
@@ -17,8 +28,16 @@ const Footer = () => {
       transition={{ duration: 0.3 }}
       className="bg-gray-800 text-white py-6"
     >
-      <div className="container mx-auto px-4 flex flex-col items-center">
-        <div className="flex space-x-4 mb-3">
+      <div className="container mx-auto px-4">
+        <nav className="flex flex-row flex-wrap justify-center gap-4 mb-6">
+          {navLinks.map((link, index) => (
+            <Link key={index} href={link.href} className="hover:text-blue-400 transition-colors duration-200 text-xs md:text-base">
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="flex justify-center space-x-3 mb-7">
           {socialLinks.map(({ icon: Icon, url, label }, index) => (
             <motion.a
               key={index}
@@ -33,12 +52,17 @@ const Footer = () => {
             </motion.a>
           ))}
         </div>
-        <p className="text-center text-sm text-gray-300 mb-2">
-          Made with <FaHeart className="inline-block text-red-500" /> by Anil Sinthu
+
+        <p className="text-center text-sm text-gray-300 mb-3 px-4">
+          Made with <FaHeart className="inline-block text-red-500" /> using Next.js by Anil Sinthu
         </p>
-        <div className="text-xs text-gray-400">
+        
+        <div className="text-center text-sm text-gray-200 mb-3 px-4">
           &copy; {currentYear} Anil Sinthu. All rights reserved.
         </div>
+      </div>
+      <div className="text-center text-xs text-gray-400 px-4">
+        Website designed and developed by Anil Sinthu and deployed on Vercel
       </div>
     </motion.footer>
   );
