@@ -88,8 +88,9 @@ export default function Home() {
 
   return (
     <>
-      <Navbar />
+      
       <main className="relative min-h-screen w-full flex flex-col justify-center items-center overflow-hidden">
+      <Navbar />
         <motion.div 
           className="absolute inset-0 bg-gradient-to-b from-gray-100 to-white"
           style={{ opacity: backgroundOpacity }}
@@ -216,8 +217,10 @@ export default function Home() {
             </motion.a>
           </motion.div>
         </motion.div>
+    
       </main>
       <Footer />
+      
     </>
   );
 }

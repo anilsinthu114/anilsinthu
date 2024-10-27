@@ -54,15 +54,6 @@ const ProjectCard = ({ title, description, techStack, link, icon, status, liveLi
         <span className={`text-sm font-semibold ${status === 'Completed' ? 'text-green-600' : 'text-yellow-600'}`}>
           {status}
         </span>
-        {isHovered && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-sm text-gray-500"
-          >
-            Click to view more details
-          </motion.div>
-        )}
       </div>
     </motion.div>
   );

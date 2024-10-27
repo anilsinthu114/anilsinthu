@@ -16,7 +16,7 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="max-w-5xl mx-auto"
         >
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 mt-8">
             <motion.h1 
               className="text-5xl font-bold text-gray-800 mb-4"
               initial={{ opacity: 0, y: -20 }}

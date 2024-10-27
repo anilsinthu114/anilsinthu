@@ -76,14 +76,15 @@ export default function About() {
                     <motion.div
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
+                        className="md:mr-16" // Added more margin on medium screens and up
                     >
                         <Image
                             src="/images/profile_sa.jpg"
                             alt="Profile Picture"
-                            width={250}
-                            height={250}
+                            width={500}
+                            height={500}
                             objectFit="cover"
-                            className="rounded-full mb-6 md:mr-12 shadow-lg border-4 border-white"
+                            className="rounded-full 50 mb-6 shadow-lg shadow-white"
                         />
                     </motion.div>
                     <div>
@@ -178,9 +179,12 @@ export default function About() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.6 }}
                 >
-                    <h2 className="text-3xl font-semibold mb-4 text-gray-800">Beyond Coding</h2>
+                    <h2 className="text-3xl font-semibold mb-4 text-gray-800 flex items-center">
+                        <FaLaptopCode className="mr-3 text-blue-500" />
+                        Personal Growth & Interests
+                    </h2>
                     <p className="text-xl text-gray-700 leading-relaxed">
-                        When I'm not coding, you can find me participating in hackathons, contributing to open-source projects, or exploring new technologies. I'm always eager to learn and take on new challenges in the ever-evolving field of technology.
+                        Beyond coding, I'm deeply passionate about continuous learning and personal development. I actively engage in coding competitions, contribute to open-source projects, and participate in hackathons to challenge myself. I have a keen interest in cybersecurity and enjoy exploring ethical hacking in my spare time. Additionally, I'm focused on developing leadership skills through team projects and technical community involvement.
                     </p>
                 </motion.div>
             </main>
