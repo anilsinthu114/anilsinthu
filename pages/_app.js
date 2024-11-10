@@ -17,8 +17,10 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <title>Anil Sinthu</title>
+        <link rel="icon" href="../public/favicon.ico" type="image/x-icon" />
         <meta name="description" content="Anil Sinthu's Portfolio" />
+        <meta property="og:image" content="https://anilsinthu.vercel.app"></meta>
       </Head>
       <motion.div
         initial={{ opacity: 0 }}
