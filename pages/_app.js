@@ -17,8 +17,8 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <link rel="icon" href="/path/to/your/favicon.ico" type="image/x-icon" />
-        <meta name="description" content="Your website description here." />
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <meta name="description" content="Anil Sinthu's Portfolio" />
       </Head>
       <motion.div
         initial={{ opacity: 0 }}
