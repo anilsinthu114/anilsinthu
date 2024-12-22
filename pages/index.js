@@ -1,26 +1,12 @@
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import Image from 'next/image';
-import profilePic from '../public/images/profile_sa.jpg';
-import { FaGithub, FaLinkedin, FaCode, FaEnvelope } from 'react-icons/fa';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useState, useEffect } from 'react';
-
-const roles = [
-  'Passionate Software Developer',
-  'Full Stack Developer', 
-  'Java Developer',
-  'Cybersecurity Enthusiast',
-  'Future Entrepreneur',
-];
-
-const descriptions = [
-  'Problem Solver | Tech Enthusiast',
-  'Full Stack Developer | UI/UX Enthusiast | Continuous Learner',
-  'Java Developer | Open Source Contributor | Innovation Driver',
-  'Cybersecurity Enthusiast | Agile Practitioner | Team Player', 
-  'Future Entrepreneur | Problem Solver | Tech Enthusiast'
-];
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import { FaCode, FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
+import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
+import descriptions from '../data/descriptions.json';
+import roles from '../data/roles.json';
+import profilePic from '../public/images/sa.jpg';
 
 const profiles = [
   { icon: FaGithub, url: 'https://github.com/anilsinthu114', label: 'GitHub' },
@@ -88,12 +74,11 @@ export default function Home() {
 
   return (
     <>
-      
-      <main className="relative min-h-screen w-full flex flex-col justify-center items-center overflow-hidden">
       <Navbar />
+      <main className="relative min-h-screen w-full flex flex-col justify-center items-center overflow-hidden" id='home'>
         <motion.div 
-          className="absolute inset-0 bg-gradient-to-b from-gray-100 to-white"
-          style={{ opacity: backgroundOpacity }}
+          className="absolute inset-0 bg-gradient-to-b from-gray-100 to-white" id='home'
+          style={{ opacity: backgroundOpacity}}
         />
         <motion.div
           className="absolute inset-0 w-full h-full"
@@ -202,7 +187,7 @@ export default function Home() {
               ))}
             </motion.div>
             <motion.a
-              href="https://drive.google.com/file/d/1r4K2DK1bDaR6IprPABP1L0lP5Deo5l_8/view?usp=sharing"
+              href="https://drive.google.com/file/d/1iD8Yp8oS7gYbZbDzNGxr7wgDXOUPAYtl/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-blue-500 text-white py-3 px-6 rounded-full mt-8 inline-block font-semibold hover:bg-blue-600 transition-colors duration-300 shadow-md"

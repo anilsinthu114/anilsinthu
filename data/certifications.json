@@ -1,0 +1,55 @@
+[
+  {
+    "name": "Beginner's Guide to Cybersecurity",
+    "issuer": "IBM",
+    "description": "Completed course on Beginner's Guide to Cybersecurity",
+    "date": "19 August 2024",
+    "certificate_id": "d292ba97360d4156aeb4d8cb044c768f",
+    "link": "https://drive.google.com/file/d/1NDiL6UkIS_SxOuU8iBtFgPMDKUq7CuFR/view?usp=sharing",
+    "image": "/images/ibm_edx.png"
+  },
+  {
+    "name": "Cybersecurity Internship",
+    "issuer": "SkillDzire",
+    "description": "Completed comprehensive internship on Cybersecurity",
+    "date": "28 June 2024",
+    "certificate_id": "SDST-14555",
+    "link": "https://drive.google.com/file/d/1Fe8167w0O8b-cHNpZvoXQ2-T3fpGahZf/view?usp=drive_link",
+    "image": "/images/skilldzire_cybersecurity.jpg"
+  },
+  {
+    "name": "Research Internship",
+    "issuer": "Dr. Mohammad Farukh Hasmi - National Institute of Technology, Warangal",
+    "description": "Conducted research on Detection of Covid-19, Tuberculosis and Pneumonia using X-ray images.",
+    "date": "May 2024 - July 2024",
+    "link": "https://drive.google.com/file/d/1MhgxtYribIpbph1YCwrw9Y73tHi93zIs/view?usp=drive_link",
+    "image": "/images/nit_warangal.jpg"
+  },
+  {
+    "name": "Software Test Automation",
+    "issuer": "SmartInternz",
+    "description": "Completed internship on Software Test Automation using Katalon Studio",
+    "date": "4 December 2023 - 12 February 2024",
+    "certificate_id": "VIP-STA-2024-94368",
+    "link": "https://drive.google.com/file/d/1FeyMCvUxHqUwimNz1NBENURzM8lWz37S/view?usp=drive_link",
+    "image": "/images/smartinternz.png"
+  },
+  {
+    "name": "30 Days of Code",
+    "issuer": "Codechef",
+    "description": "Successfully completed 30 Days of Code challenge in Java",
+    "date": "8 August 2023",
+    "certificate_id": "cf153c9",
+    "link": "https://drive.google.com/file/d/1N7fV-5g_YNXJR1BBasHOxGUsJ4DTYhvm/view?usp=drive_link",
+    "image": "/images/codechef_30.png"
+  },
+  {
+    "name": "Introduction to Cybersecurity",
+    "issuer": "Simplilearn",
+    "description": "Completed course on Introduction to Cybersecurity",
+    "date": "22 November 2022",
+    "certificate_id": "3952513",
+    "link": "https://drive.google.com/file/d/1FhPBE49FTRDAqINxeBl3vBYcfY9KI97F/view?usp=drive_link",
+    "image": "/images/skillup.png"
+  }
+]

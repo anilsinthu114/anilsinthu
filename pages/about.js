@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FaJava, FaPython, FaJs, FaReact, FaNodeJs, FaDatabase, FaGitAlt, FaCloud, FaGraduationCap, FaLaptopCode, FaUserGraduate } from 'react-icons/fa';
+import data from '../data/aboutData.json';
 
 export default function About() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -18,51 +19,6 @@ export default function About() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const skills = [
-        { name: 'Java', icon: FaJava },
-        { name: 'Python', icon: FaPython },
-        { name: 'JavaScript', icon: FaJs },
-        { name: 'React', icon: FaReact },
-        { name: 'Node.js', icon: FaNodeJs },
-        { name: 'Databases', icon: FaDatabase },
-        { name: 'Git', icon: FaGitAlt },
-        { name: 'Cloud', icon: FaCloud },
-    ];
-
-    const education = [
-        {
-            degree: 'B.Tech in Information Technology',
-            institution: 'JNTU-GV College of Engineering, Vizianagaram (A)',
-            university: 'Jawaharlal Nehru Technological University Gurajada Vizianagaram',
-            year: '2022 - Present',
-            achievements: [
-                'Acted as a Coordinator for the Workshop on ReactJS called WebBlaze',
-                'Acted as Membership chair ACM Student Chapter, JNTUGV',
-                'Developed a website for PHD Registration System using NodeJS, Express and MySQL',
-            ]
-        },
-        {
-            degree: 'Diploma in Computer Science and Engineering',
-            institution: 'Government Polytechnic College, Srikakulam',
-            university: 'Andhra Pradesh State Board of Technical Education and Training',
-            year: '2019 - 2022',
-            achievements: [
-                'Secured 85% in Diploma',
-                'Co-developed a website for College Website using HTML, CSS, JavaScript'
-            ]
-        },
-        {
-            degree: 'Secondary School Certificate',
-            institution: 'Kranthi Vidya Niketan, Srikakulam',
-            university: 'Andhra Pradesh State Board of Secondary Education',
-            year: '2018 - 2019',
-            achievements: [
-                'Secured 9.8 CGPA in SSC',
-                'Participated in Inter School Science Exhibition'
-            ]
-        }
-    ];
-
     return (
         <div className="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 min-h-screen">
             <Navbar />
@@ -76,15 +32,14 @@ export default function About() {
                     <motion.div
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="md:mr-16" // Added more margin on medium screens and up
+                        className="md:mr-16"
                     >
                         <Image
-                            src="/images/profile_sa.jpg"
+                            src="/images/sa.jpg"
                             alt="Profile Picture"
                             width={500}
                             height={500}
                             objectFit="cover"
-                            className="rounded-full 50 mb-6 shadow-lg shadow-white"
                         />
                     </motion.div>
                     <div>
@@ -122,7 +77,7 @@ export default function About() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                    {skills.map((skill, index) => (
+                    {data.skills.map((skill, index) => (
                         <motion.div 
                             key={index} 
                             className="flex items-center bg-white bg-opacity-80 backdrop-filter backdrop-blur-lg shadow-md rounded-lg p-5 hover:shadow-lg transition-all duration-300"
@@ -152,7 +107,7 @@ export default function About() {
                         <FaGraduationCap className="mr-3 text-blue-500" />
                         Education
                     </h3>
-                    {education.map((edu, index) => (
+                    {data.education.map((edu, index) => (
                         <motion.div 
                             key={index} 
                             className="mb-6 bg-white bg-opacity-90 backdrop-filter backdrop-blur-lg p-6 rounded-lg shadow-md"
@@ -183,9 +138,15 @@ export default function About() {
                         <FaLaptopCode className="mr-3 text-blue-500" />
                         Personal Growth & Interests
                     </h2>
-                    <p className="text-xl text-gray-700 leading-relaxed">
+                    <p className="text-xl text-gray-700 leading-relaxed mb-6">
                         Beyond coding, I'm deeply passionate about continuous learning and personal development. I actively engage in coding competitions, contribute to open-source projects, and participate in hackathons to challenge myself. I have a keen interest in cybersecurity and enjoy exploring ethical hacking in my spare time. Additionally, I'm focused on developing leadership skills through team projects and technical community involvement.
                     </p>
+                    <h3 className="text-2xl font-semibold mb-4 text-gray-800">Hobbies</h3>
+                    <ul className="list-disc list-inside text-xl text-gray-700">
+                        {data.hobbies.map((hobby, index) => (
+                            <li key={index}>{hobby}</li>
+                        ))}
+                    </ul>
                 </motion.div>
             </main>
             <Footer />

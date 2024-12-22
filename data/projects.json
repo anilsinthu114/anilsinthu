@@ -1,0 +1,76 @@
+[
+  {
+    "title": "WhatsApp Automation for Payment Receipts",
+    "description": "Developed a Python-based system that automates the process of sending payment receipts via WhatsApp. This project streamlines business operations by reducing manual effort and improving customer communication.",
+    "techStack": ["Python", "Flask", "Twilio API"],
+    "link": "https://github.com/anilsinthu114/whatsapp-automation",
+    "icon": "FaGithub",
+    "status": "In Progress"
+  },
+  {
+    "title": "Bulk Image Upload API",
+    "description": "Created a robust Node.js Express API for efficient management of bulk image uploads. This project significantly improved data handling capabilities for a client's e-commerce platform.",
+    "techStack": ["Node.js", "Express", "MySQL", "React"],
+    "link": "private",
+    "icon": "FaLock",
+    "status": "Completed"
+  },
+  {
+    "title": "PhD Registration System",
+    "description": "Engineered a comprehensive system for managing PhD scholar data, featuring dynamic form handling and secure file uploads. This project enhanced the efficiency of the university's registration process.",
+    "techStack": ["Node.js", "Express", "MySQL", "React"],
+    "link": "private",
+    "icon": "FaLock",
+    "status": "Completed"
+  },
+  {
+    "title": "Portfolio Website",
+    "description": "Designed and developed a personal portfolio website using Next.js and Tailwind CSS. This project showcases my skills and projects in an interactive and responsive manner.",
+    "techStack": ["Next.js", "Tailwind CSS"],
+    "link": "https://github.com/anilsinthu114/anilsinthu",
+    "icon": "FaGithub",
+    "status": "Completed",
+    "liveLink": "https://anilsinthu.vercel.app"
+  },
+  {
+    "title": "Smart Traffic Management System",
+    "description": "Implemented an intelligent system for urban traffic management using Python and Flask. This project aims to optimize traffic flow and reduce congestion in smart cities.",
+    "techStack": ["Python", "Flask", "MySQL"],
+    "link": "https://github.com/anilsinthu114/smart-traffic-management-system",
+    "icon": "FaGithub",
+    "status": "Ongoing"
+  },
+  {
+    "title": "Real-Time Traffic Management System",
+    "description": "Developed an advanced system for real-time traffic management utilizing machine learning algorithms and weather data. This project provides accurate traffic predictions and suggestions for route optimization.",
+    "techStack": ["Python", "Random Forest", "Gradient Boosting", "KNN", "SVM", "OpenWeatherMap API"],
+    "link": "https://github.com/anilsinthu114/real_time_traffic_mangement",
+    "icon": "FaGithub",
+    "status": "Completed"
+  },
+  {
+    "title": "Bible Verse Generator",
+    "description": "Created an interactive website that generates random Bible verses. This project serves as a daily inspiration tool for users seeking spiritual guidance.",
+    "techStack": ["HTML", "CSS", "JavaScript", "React"],
+    "link": "https://github.com/anilsinthu114/biblequotegenerator",
+    "icon": "FaGithub",
+    "status": "Completed",
+    "liveLink": "https://getbibleverse.vercel.app"
+  },
+  {
+    "title": "Detection of Covid-19 using Chest X-Ray Images",
+    "description": "Developed a deep learning model to detect Covid-19 from chest X-ray images. This project contributes to faster and more accurate diagnosis of Covid-19 cases.",
+    "techStack": ["Python", "CNN", "Keras", "TensorFlow", "OpenCV", "Deep Learning", "Machine Learning", "DenseNet121"],
+    "link": "https://github.com/anilsinthu114/DetCovid19",
+    "icon": "FaGithub",
+    "status": "Completed"
+  },
+  {
+    "title": "Service Request Management System",
+    "description": "Engineered a comprehensive system for managing service requests using Java and MySQL. This project improves customer service efficiency and request tracking for businesses.",
+    "techStack": ["Java", "MySQL", "Eclipse IDE", "Java Servlet", "JSP", "JSTL", "JDBC"],
+    "link": "https://github.com/anilsinthu114/service-management-system",
+    "icon": "FaGithub",
+    "status": "Completed"
+  }
+]

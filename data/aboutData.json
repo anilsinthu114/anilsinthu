@@ -1,0 +1,51 @@
+{
+    "skills": [
+        { "name": "Java", "icon": "FaJava" },
+        { "name": "Python", "icon": "FaPython" },
+        { "name": "JavaScript", "icon": "FaJs" },
+        { "name": "React", "icon": "FaReact" },
+        { "name": "Node.js", "icon": "FaNodeJs" },
+        { "name": "Databases", "icon": "FaDatabase" },
+        { "name": "Git", "icon": "FaGitAlt" },
+        { "name": "Cloud", "icon": "FaCloud" }
+    ],
+    "education": [
+        {
+            "degree": "B.Tech in Information Technology",
+            "institution": "JNTU-GV College of Engineering, Vizianagaram (A)",
+            "university": "Jawaharlal Nehru Technological University Gurajada Vizianagaram",
+            "year": "2022 - Present",
+            "achievements": [
+                "Acted as a Coordinator for the Workshop on ReactJS called WebBlaze",
+                "Acted as Membership chair ACM Student Chapter, JNTUGV",
+                "Developed a website for PHD Registration System using NodeJS, Express and MySQL"
+            ]
+        },
+        {
+            "degree": "Diploma in Computer Science and Engineering",
+            "institution": "Government Polytechnic College, Srikakulam",
+            "university": "Andhra Pradesh State Board of Technical Education and Training",
+            "year": "2019 - 2022",
+            "achievements": [
+                "Secured 85% in Diploma",
+                "Co-developed a website for College Website using HTML, CSS, JavaScript"
+            ]
+        },
+        {
+            "degree": "Secondary School Certificate",
+            "institution": "Kranthi Vidya Niketan, Srikakulam",
+            "university": "Andhra Pradesh State Board of Secondary Education",
+            "year": "2018 - 2019",
+            "achievements": [
+                "Secured 9.8 CGPA in SSC",
+                "Participated in Inter School Science Exhibition"
+            ]
+        }
+    ],
+    "hobbies": [
+        "Reading tech blogs",
+        "Playing chess",
+        "Traveling",
+        "Photography"
+    ]
+}

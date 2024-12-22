@@ -4,45 +4,10 @@ import Footer from '../components/Footer';
 import { FaJava, FaPython, FaJs, FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaGitAlt, FaLinux, FaDocker, FaAws } from 'react-icons/fa';
 import { SiCplusplus, SiMysql, SiMongodb, SiPostgresql, SiC } from 'react-icons/si';
 import { motion } from 'framer-motion';
+import skillData from '../data/skills.json';
 
 export default function Skills() {
-  const skillCategories = [
-    {
-      name: 'Programming Languages',
-      skills: [
-        { name: 'Java', level: 90, icon: FaJava },
-        { name: 'Python', level: 75, icon: FaPython },
-        { name: 'JavaScript', level: 80, icon: FaJs },
-        { name: 'C', level: 90, icon: SiC },
-      ],
-    },
-    {
-      name: 'Web Development',
-      skills: [
-        { name: 'React', level: 75, icon: FaReact },
-        { name: 'Node.js', level: 80, icon: FaNodeJs },
-        { name: 'HTML5', level: 75, icon: FaHtml5 },
-        { name: 'CSS3', level: 75, icon: FaCss3Alt },
-      ],
-    },
-    {
-      name: 'Databases',
-      skills: [
-        { name: 'MySQL', level: 85, icon: SiMysql },
-        { name: 'MongoDB', level: 65, icon: SiMongodb },
-        { name: 'PostgreSQL', level: 70, icon: SiPostgresql },
-      ],
-    },
-    {
-      name: 'Tools & Technologies',
-      skills: [
-        { name: 'Git', level: 90, icon: FaGitAlt },
-        { name: 'Linux', level: 80, icon: FaLinux },
-        { name: 'Docker', level: 55, icon: FaDocker },
-        { name: 'AWS', level: 55, icon: FaAws },
-      ],
-    },
-  ];
+  const skillCategories = skillData.skillCategories;
 
   const getProficiencyLevel = (level) => {
     if (level >= 90) return 'Expert';

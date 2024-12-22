@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { motion } from 'framer-motion';
 import { FaBriefcase, FaCalendarAlt, FaTrophy, FaChevronRight, FaMapMarkerAlt } from 'react-icons/fa';
+import experiences from '../data/experiences.json';
 
 const ExperienceCard = ({ exp, index }) => (
   <motion.div
@@ -54,64 +55,6 @@ const ExperienceCard = ({ exp, index }) => (
 );
 
 export default function Experience() {
-  const experiences = [
-    {
-      title: 'Backend Developer (Voluntary)',
-      company: 'JNTU-GV University',
-      location: 'Vizianagaram, Andhra Pradesh',
-      period: '2023-Present',
-      description: 'Developed and maintained back-end services for various projects, including e-commerce and internal tools.',
-      achievements: [
-        'Developed a new module to upload and manage bulk images for the university Events and News and Gallery pages',
-        'Enhanced the existing modules with new features and improved the performance',
-        'Encrypted the sensitive data of the university',
-        'Developing a OAUTH2.0 Authentication system for the university Admin website',
-        'Fixed the bugs in the existing modules'
-      ]
-    },
-    {
-      title: 'Cyber Security Intern',
-      company: 'SkillDzire with Collaboration with APSCHE',
-      location: 'Remote',
-      period: 'May 2024 - July 2024',
-      description: 'A Mandatory Internship of 2 months for the students of Information Technology in JNTU-GV University.',
-      achievements: [
-        'Learned about the basics of Cyber Security and Cyber Forensics',
-        'Learned about the basics of Cloud Computing and Cyber Attacks',
-        'Learned about the basics of Cyber Security Tools and Cyber Forensics Tools',
-        'Learned about the basics of Cyber Security Laws and Cyber Security Ethics',
-        'Learned about the basics of Cyber Security Management and Cyber Security Policies',
-      ]
-    },
-    {
-      title: 'Research Intern',
-      college: 'National Institute of Technology, Warangal',
-      location: 'Warangal, Telangana',
-      period: 'May 2024 - July 2024',
-      description: 'Conducted research on Detection of Covid-19, Tuberculosis and Pneumonia using X-ray images.',
-      achievements: [
-        'Learned about the basics of Machine Learning and Deep Learning',
-        'Learned about the basics of Computer Vision and Image Processing',
-        'Learned about the basics of Deep Learning Models and their architectures',
-        'Trained the models on the dataset and tested the models',
-        'Achieved an accuracy of 91% in the detection of Covid-19, Tuberculosis and Pneumonia using X-ray images'
-      ]
-    },
-    {
-      title: 'Software Test Automation Intern',
-      company: 'SmartInternz',
-      location: 'Remote',
-      period: 'December 2023 - January 2024',
-      description: 'An Internship of 1 month to learn about the basics of Software Test Automation and how to use Katalon Studio to automate the testing of web applications.',
-      achievements: [
-        'Learned about the basics of Software Automation Testing and how to use Katalon Studio to automate the testing of web applications',
-        'Gained hands-on experience in creating and executing automated test scripts',
-        'Developed skills in identifying and reporting software defects',
-        'Collaborated with team members to improve test coverage and efficiency'
-      ]
-    }
-  ];
-
   return (
     <>
       <Navbar />
