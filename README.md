@@ -51,14 +51,6 @@ This project is deployed on Vercel. Any changes made to the repository will auto
 
 [https://anilsinthu.vercel.app](https://anilsinthu.vercel.app)
 
-## Contributing
-
-Feel free to open issues or submit pull requests if you'd like to contribute to this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## Contact
 
 You can reach me at:
@@ -66,4 +58,4 @@ You can reach me at:
 - [LinkedIn](https://www.linkedin.com/in/anilsinthu/)
 - [Email](mailto:anilsinthu114@gmail.com)
 - Through the contact form on the website.
-```
+``` anilsinthu.vercel.app/contact ```
