@@ -1,16 +1,18 @@
 [
   {
-    "title": "Backend Developer (Voluntary)",
-    "company": "JNTU-GV University",
+    "title": "Full Stack Developer",
+    "company": "Digital Monitoring Cell - JNTU-GV University",
     "location": "Vizianagaram, Andhra Pradesh",
     "period": "2023-Present",
     "description": "Developed and maintained back-end services for various projects, including e-commerce and internal tools.",
     "achievements": [
-      "Developed a new module to upload and manage bulk images for the university Events and News and Gallery pages",
-      "Enhanced the existing modules with new features and improved the performance",
-      "Encrypted the sensitive data of the university",
-      "Developing a OAUTH2.0 Authentication system for the university Admin website",
-      "Fixed the bugs in the existing modules"
+      "Developed Review of Research Methodology Registartion website using React and Node JS",
+      "Admin Console Development & Optimization",
+      "Development and Integration of Complex APIs",
+      "Automated File Handling",
+      "Database Management and Performance Optimization",
+      "Security Implementation by encryption, hashing mechanisms, and role-based access control.",
+      "Server Deployment and Application Maintenance"
     ]
   },
   {

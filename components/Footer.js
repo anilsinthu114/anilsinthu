@@ -1,7 +1,7 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { FaHeart, FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import Link from 'next/link';
+import React from 'react';
+import { FaEnvelope, FaGithub, FaHeart, FaLinkedin } from 'react-icons/fa';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -14,6 +14,7 @@ const Footer = () => {
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
+    {href: '/blog', label: 'Blog'},
     { href: '/projects', label: 'Projects' },
     { href: '/experience', label: 'Experience' },
     { href: '/skills', label: 'Skills' },

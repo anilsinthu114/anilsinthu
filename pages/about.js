@@ -1,10 +1,14 @@
-import { useState, useEffect } from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { FaJava, FaPython, FaJs, FaReact, FaNodeJs, FaDatabase, FaGitAlt, FaCloud, FaGraduationCap, FaLaptopCode, FaUserGraduate } from 'react-icons/fa';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import { FaCloud, FaDatabase, FaGitAlt, FaGraduationCap, FaHtml5, FaJava, FaJs, FaLaptopCode, FaNodeJs, FaPython, FaReact, FaUserGraduate } from 'react-icons/fa';
+import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
 import data from '../data/aboutData.json';
+
+const iconMap = {
+    FaCloud, FaDatabase, FaGitAlt, FaGraduationCap, FaHtml5, FaJava, FaJs, FaLaptopCode, FaNodeJs, FaPython, FaReact, FaUserGraduate
+  };
 
 export default function About() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -77,17 +81,20 @@ export default function About() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                    {data.skills.map((skill, index) => (
-                        <motion.div 
-                            key={index} 
-                            className="flex items-center bg-white bg-opacity-80 backdrop-filter backdrop-blur-lg shadow-md rounded-lg p-5 hover:shadow-lg transition-all duration-300"
-                            whileHover={{ scale: 1.05, backgroundColor: "#f0f9ff" }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            <skill.icon className="text-3xl mr-3 text-blue-500" />
-                            <span className="text-lg font-medium">{skill.name}</span>
-                        </motion.div>
-                    ))}
+                    {data.skills.map((skill, index) => {
+                        const IconComponent = iconMap[skill.icon] || FaJava;
+                        return (
+                            <motion.div 
+                                key={index} 
+                                className="flex items-center bg-white bg-opacity-80 backdrop-filter backdrop-blur-lg shadow-md rounded-lg p-5 hover:shadow-lg transition-all duration-300"
+                                whileHover={{ scale: 1.05, backgroundColor: "#f0f9ff" }}
+                                whileTap={{ scale: 0.95 }}
+                            >
+                                <IconComponent className="text-3xl mr-3 text-blue-500" />
+                                <span className="text-lg font-medium">{skill.name}</span>
+                            </motion.div>
+                        );
+                    })}
                 </motion.div>
 
                 <motion.div 

@@ -11,6 +11,7 @@
     ],
     "education": [
         {
+            "logo":"https://jntugv.edu.in/static/media/jntugvcev.b33bb43b07b2037ab043.jpg/",
             "degree": "B.Tech in Information Technology",
             "institution": "JNTU-GV College of Engineering, Vizianagaram (A)",
             "university": "Jawaharlal Nehru Technological University Gurajada Vizianagaram",
@@ -22,6 +23,7 @@
             ]
         },
         {
+            "logo":"images/gptsklm",
             "degree": "Diploma in Computer Science and Engineering",
             "institution": "Government Polytechnic College, Srikakulam",
             "university": "Andhra Pradesh State Board of Technical Education and Training",
@@ -32,6 +34,7 @@
             ]
         },
         {
+            "logo":"https://www.bse.ap.gov.in/images/bseap_banner.jpg",
             "degree": "Secondary School Certificate",
             "institution": "Kranthi Vidya Niketan, Srikakulam",
             "university": "Andhra Pradesh State Board of Secondary Education",

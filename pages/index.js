@@ -23,8 +23,8 @@ export default function Home() {
   const [isLaunchDay, setIsLaunchDay] = useState(false);
   
   const { scrollY } = useScroll();
-  
-  // Enhanced scroll-based animations
+
+  // Scroll-based animations
   const imageScale = useTransform(scrollY, [0, 300], [1, 0.85]);
   const imageY = useTransform(scrollY, [0, 300], [0, 30]);
   const contentY = useTransform(scrollY, [0, 300], [0, -30]);
@@ -34,17 +34,22 @@ export default function Home() {
   const backgroundOpacity = useTransform(scrollY, [0, 300], [0.8, 0.6]);
   const titleScale = useTransform(scrollY, [0, 300], [1, 0.95]);
   const socialScale = useTransform(scrollY, [0, 300], [1, 0.9]);
-  
+
   useEffect(() => {
+    if (!roles || roles.length === 0) return; // Ensure roles are available
+
     const typingSpeed = 100;
     const deletingSpeed = 50;
     const pauseBetweenRoles = 1000;
 
-    if (!isDeleting && displayedRole === roles[currentRoleIndex]) {
-      const timeout = setTimeout(() => setIsDeleting(true), pauseBetweenRoles);
-      return () => clearTimeout(timeout);
-    } 
-    
+    const currentRole = roles[currentRoleIndex] || ''; // Ensure role exists
+    const currentDesc = descriptions[currentRoleIndex % descriptions.length] || '';
+
+    if (!isDeleting && displayedRole === currentRole) {
+      setTimeout(() => setIsDeleting(true), pauseBetweenRoles);
+      return;
+    }
+
     if (isDeleting && displayedRole === '') {
       setIsDeleting(false);
       setCurrentRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
@@ -52,16 +57,14 @@ export default function Home() {
     }
 
     const timeout = setTimeout(() => {
-      setDisplayedRole(prevRole => 
-        isDeleting 
-          ? prevRole.slice(0, -1)
-          : roles[currentRoleIndex].slice(0, prevRole.length + 1)
+      setDisplayedRole((prevRole) =>
+        isDeleting ? prevRole.slice(0, -1) : currentRole.slice(0, prevRole.length + 1)
       );
-      setDisplayedDescription(descriptions[currentRoleIndex % descriptions.length]);
+      setDisplayedDescription(currentDesc);
     }, isDeleting ? deletingSpeed : typingSpeed);
-    
+
     return () => clearTimeout(timeout);
-  }, [displayedRole, currentRoleIndex, isDeleting, roles]);
+  }, [displayedRole, currentRoleIndex, isDeleting]);
 
   useEffect(() => {
     const currentDate = new Date();
@@ -77,8 +80,8 @@ export default function Home() {
       <Navbar />
       <main className="relative min-h-screen w-full flex flex-col justify-center items-center overflow-hidden" id='home'>
         <motion.div 
-          className="absolute inset-0 bg-gradient-to-b from-gray-100 to-white" id='home'
-          style={{ opacity: backgroundOpacity}}
+          className="absolute inset-0 bg-gradient-to-b from-gray-100 to-white"
+          style={{ opacity: backgroundOpacity }}
         />
         <motion.div
           className="absolute inset-0 w-full h-full"
@@ -86,32 +89,14 @@ export default function Home() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
           style={{ opacity, filter: `blur(${blurStrength}px)` }}
-        >
-          {['blue', 'yellow', 'pink'].map((color, index) => (
-            <motion.div
-              key={color}
-              className={`absolute w-1/3 aspect-square bg-${color}-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob`}
-              style={{
-                top: index === 1 ? '0' : 'auto',
-                right: index === 1 ? '0' : 'auto',
-                bottom: index === 2 ? '0' : 'auto',
-                left: index === 2 ? '50%' : index === 0 ? '0' : 'auto',
-                transform: index === 2 ? 'translateX(-50%)' : 'none',
-                animationDelay: `${index * 2}s`
-              }}
-            />
-          ))}
-        </motion.div>
+        />
         <motion.div 
           className="container mx-auto text-center z-10"
           style={{ padding: containerPadding }}
         >
           <motion.div
             className="relative"
-            style={{ 
-              scale: imageScale,
-              y: imageY
-            }}
+            style={{ scale: imageScale, y: imageY }}
           >
             <Image
               src={profilePic}
@@ -120,11 +105,6 @@ export default function Home() {
               height={200}
               className="rounded-full mx-auto shadow-xl transition-all duration-500 hover:scale-110"
               priority
-              style={{
-                width: '200px',
-                height: '200px',
-                transform: `scale(${imageScale.get()})`,
-              }}
             />
           </motion.div>
           {isLaunchDay && (
@@ -137,9 +117,7 @@ export default function Home() {
               Launched Today! On occasion of My Birthday
             </motion.div>
           )}
-          <motion.div
-            style={{ y: contentY }}
-          >
+          <motion.div style={{ y: contentY }}>
             <motion.h1
               className="text-5xl font-bold mt-6 text-gray-800"
               style={{ scale: titleScale }}
@@ -167,7 +145,7 @@ export default function Home() {
             <motion.div
               className="mt-8 flex justify-center space-x-6"
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1, x: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.5, type: 'spring', stiffness: 120 }}
               style={{ scale: socialScale }}
             >
@@ -186,26 +164,10 @@ export default function Home() {
                 </motion.a>
               ))}
             </motion.div>
-            <motion.a
-              href="https://drive.google.com/file/d/1iD8Yp8oS7gYbZbDzNGxr7wgDXOUPAYtl/view?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-blue-500 text-white py-3 px-6 rounded-full mt-8 inline-block font-semibold hover:bg-blue-600 transition-colors duration-300 shadow-md"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ delay: 0.8, duration: 0.5, type: 'spring', stiffness: 120 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              style={{ scale: socialScale }}
-            >
-              Download Resume
-            </motion.a>
           </motion.div>
         </motion.div>
-    
       </main>
       <Footer />
-      
     </>
   );
 }

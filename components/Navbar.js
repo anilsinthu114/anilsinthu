@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Navbar = () => {
@@ -26,6 +26,7 @@ const Navbar = () => {
   const navItems = [
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
+    {href:'/blog',label:'My College Life'},
     { href: '/projects', label: 'Projects' },
     { href: '/experience', label: 'Experience' },
     { href: '/skills', label: 'Skills' },    

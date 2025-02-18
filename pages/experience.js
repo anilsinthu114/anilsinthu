@@ -1,8 +1,8 @@
-import React from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 import { motion } from 'framer-motion';
-import { FaBriefcase, FaCalendarAlt, FaTrophy, FaChevronRight, FaMapMarkerAlt } from 'react-icons/fa';
+import React from 'react';
+import { FaBriefcase, FaCalendarAlt, FaChevronRight, FaMapMarkerAlt, FaTrophy } from 'react-icons/fa';
+import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
 import experiences from '../data/experiences.json';
 
 const ExperienceCard = ({ exp, index }) => (
@@ -67,12 +67,12 @@ export default function Experience() {
             transition={{ duration: 0.5 }}
           >
             Professional Experience
-            <motion.div
+            {/* <motion.div
               className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 md:w-24 h-1 bg-blue-500"
               initial={{ width: 0 }}
               animate={{ width: '100%' }}
               transition={{ duration: 0.5, delay: 0.2 }}
-            />
+            /> */}
           </motion.h1>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {experiences.map((exp, index) => (
