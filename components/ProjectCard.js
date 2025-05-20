@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaLock } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { FaExternalLinkAlt, FaGithub, FaLock } from 'react-icons/fa';
 
 const ProjectCard = ({ title, description, techStack, link, icon, status, liveLink }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -29,7 +29,7 @@ const ProjectCard = ({ title, description, techStack, link, icon, status, liveLi
             rel="noopener noreferrer"
             className="text-blue-600 hover:text-blue-800 transition-colors flex items-center"
           >
-            {icon}
+            <FaGithub className="mr-2" />
             <span className="ml-2">View Code</span>
           </a>
         ) : (
