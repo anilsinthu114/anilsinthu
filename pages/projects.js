@@ -7,7 +7,10 @@ import ProjectCard from '../components/ProjectCard';
 import projectsData from '../data/projects.json';
 
 export default function Projects() {
-    const projects = projectsData;
+    const projects = projectsData.map(project => ({
+        ...project,
+        icon: project.icon === 'FaGithub' ? FaGithub : FaLock
+    }));
 
     return (
         <>
