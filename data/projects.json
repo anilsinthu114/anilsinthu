@@ -3,25 +3,49 @@
     "title": "WhatsApp Automation for Payment Receipts",
     "description": "Developed a Python-based system that automates the process of sending payment receipts via WhatsApp. This project streamlines business operations by reducing manual effort and improving customer communication.",
     "techStack": ["Python", "Flask", "Twilio API"],
-    "link": "https://github.com/anilsinthu114/whatsapp-automation",
+    "link": "https://github.com/anilsinthu73/whatsapp_msg_automation",
     "icon": "FaGithub",
     "status": "In Progress"
   },
+
+{
+  "title": "Adaptive Compression Techniques for Enhancing Efficiency in Code-Centric Models",
+  "description": "Implemented advanced compression algorithms to optimize code-centric machine learning models, resulting in reduced model size while maintaining performance. This research project focused on improving deployment efficiency in resource-constrained environments.",
+  "techStack": ["Python", "TensorFlow", "PyTorch", "Deep Learning", "Model Compression", "Quantization", "Pruning", "Hugging Face", "Transformers"],
+  "link": "https://github.com/anilsinthu-73/adaptive-compression-codebert",
+  "icon": "FaGithub",
+  "status": "Completed"
+},
+
+{
+  "title": "Waterdip Hotel Dashboard",
+  "description": "Developed a comprehensive hotel management dashboard enabling administrators to efficiently manage bookings, customer details, room availability, and hotel services. Features include room management, booking system, customer management, analytics dashboard, and secure user authentication.",
+  "techStack": ["React.js", "Node.js", "Express.js", "MySQL", "CSS/SCSS"],
+  "link": "https://github.com/anilsinthu73/waterdip-hotel-dashboard",
+  "icon": "FaGithub",
+  "status": "Completed",
+  "liveLink":"https://waterdip-hotel-dashboard.vercel.app/"
+},
+
+
+  
   {
-    "title": "Bulk Image Upload API",
-    "description": "Created a robust Node.js Express API for efficient management of bulk image uploads. This project significantly improved data handling capabilities for a client's e-commerce platform.",
-    "techStack": ["Node.js", "Express", "MySQL", "React"],
-    "link": "private",
-    "icon": "FaLock",
-    "status": "Completed"
-  },
-  {
-    "title": "PhD Registration System",
+    "title": "RRM Registration System",
     "description": "Engineered a comprehensive system for managing PhD scholar data, featuring dynamic form handling and secure file uploads. This project enhanced the efficiency of the university's registration process.",
     "techStack": ["Node.js", "Express", "MySQL", "React"],
-    "link": "private",
+    "link": "https://github.com/anilsinthu73/rrmregistartions",
     "icon": "FaLock",
-    "status": "Completed"
+    "status": "Completed",
+    "liveLink":"https://rrmregistartions.vercel.app"
+  },
+  {
+    "title": "RRM Registration API ",
+    "description": "Engineered a comprehensive system for managing PhD scholar data, featuring dynamic form handling and secure file uploads. This project enhanced the efficiency of the university's registration process.",
+    "techStack": ["Node.js", "Express", "MySQL", "React"],
+    "link": "https://github.com/anilsinthu73/api-rrmregistrations",
+    "icon": "FaLock",
+    "status": "Completed",
+    "liveLink":"https://api-rrmregistrations.vercel.app/"
   },
   {
     "title": "Portfolio Website",
@@ -38,7 +62,15 @@
     "techStack": ["Python", "Flask", "MySQL"],
     "link": "https://github.com/anilsinthu114/smart-traffic-management-system",
     "icon": "FaGithub",
-    "status": "Ongoing"
+    "status": "completed"
+  },
+  {
+    "title": "Bulk Image Upload API",
+    "description": "Created a robust Node.js Express API for efficient management of bulk image uploads. This project significantly improved data handling capabilities for a client's e-commerce platform.",
+    "techStack": ["Node.js", "Express", "MySQL", "React"],
+    "link": "private",
+    "icon": "FaLock",
+    "status": "Completed"
   },
   {
     "title": "Real-Time Traffic Management System",

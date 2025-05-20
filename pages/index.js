@@ -202,7 +202,7 @@ export default function Home() {
               ))}
             </motion.div>
             <motion.a
-              href="https://drive.google.com/file/d/1r4K2DK1bDaR6IprPABP1L0lP5Deo5l_8/view?usp=sharing"
+              href="https://drive.google.com/file/d/1q9lum4ID1XdXD1z9lMfKGvZVVr1L1Ob6/view?usp=drive_link"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-blue-500 text-white py-3 px-6 rounded-full mt-8 inline-block font-semibold hover:bg-blue-600 transition-colors duration-300 shadow-md"
