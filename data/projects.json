@@ -16,7 +16,15 @@
   "icon": "FaGithub",
   "status": "Completed"
 },
-
+{
+  "title": "Network Packet Sniffer",
+  "description": "A real-time network packet sniffer that captures and analyzes network traffic using Python. Features include protocol detection, live updates via Socket.IO, packet filtering, and a React-based dashboard for visualization.",
+  "techStack": ["Python", "Flask", "Socket.IO", "Scapy", "React.js", "Chart.js", "Bootstrap", "JavaScript", "HTML", "CSS"],
+  "link": "https://github.com/anilsinthu114/network-packet-sniffer",
+  "icon": "FaGithub",
+  "liveLink": "https://network-packet-sniffer.vercel.app",
+  "status": "Completed"
+},
 {
   "title": "Waterdip Hotel Dashboard",
   "description": "Developed a comprehensive hotel management dashboard enabling administrators to efficiently manage bookings, customer details, room availability, and hotel services. Features include room management, booking system, customer management, analytics dashboard, and secure user authentication.",
@@ -26,14 +34,11 @@
   "status": "Completed",
   "liveLink":"https://waterdip-hotel-dashboard.vercel.app/"
 },
-
-
-  
-  {
+{
     "title": "RRM Registration System",
     "description": "Engineered a comprehensive system for managing PhD scholar data, featuring dynamic form handling and secure file uploads. This project enhanced the efficiency of the university's registration process.",
     "techStack": ["Node.js", "Express", "MySQL", "React"],
-    "link": "https://github.com/anilsinthu73/rrmregistartions",
+    "link": "https://github.com/anilsinthu114/rrmregistartions",
     "icon": "FaLock",
     "status": "Completed",
     "liveLink":"https://rrmregistartions.vercel.app"
@@ -42,7 +47,7 @@
     "title": "RRM Registration API ",
     "description": "Engineered a comprehensive system for managing PhD scholar data, featuring dynamic form handling and secure file uploads. This project enhanced the efficiency of the university's registration process.",
     "techStack": ["Node.js", "Express", "MySQL", "React"],
-    "link": "https://github.com/anilsinthu73/api-rrmregistrations",
+    "link": "https://github.com/anilsinthu114/api-rrmregistrations",
     "icon": "FaLock",
     "status": "Completed",
     "liveLink":"https://api-rrmregistrations.vercel.app/"
@@ -50,30 +55,14 @@
   {
     "title": "Portfolio Website",
     "description": "Designed and developed a personal portfolio website using Next.js and Tailwind CSS. This project showcases my skills and projects in an interactive and responsive manner.",
-    "techStack": ["Next.js", "Tailwind CSS"],
+    "techStack": ["Next.js", "TypeScript ","Tailwind CSS"],
     "link": "https://github.com/anilsinthu114/anilsinthu",
     "icon": "FaGithub",
     "status": "Completed",
     "liveLink": "https://anilsinthu.vercel.app"
   },
   {
-    "title": "Smart Traffic Management System",
-    "description": "Implemented an intelligent system for urban traffic management using Python and Flask. This project aims to optimize traffic flow and reduce congestion in smart cities.",
-    "techStack": ["Python", "Flask", "MySQL"],
-    "link": "https://github.com/anilsinthu114/smart-traffic-management-system",
-    "icon": "FaGithub",
-    "status": "completed"
-  },
-  {
-    "title": "Bulk Image Upload API",
-    "description": "Created a robust Node.js Express API for efficient management of bulk image uploads. This project significantly improved data handling capabilities for a client's e-commerce platform.",
-    "techStack": ["Node.js", "Express", "MySQL", "React"],
-    "link": "private",
-    "icon": "FaLock",
-    "status": "Completed"
-  },
-  {
-    "title": "Real-Time Traffic Management System",
+    "title": "Real-Time Traffic Prediction System",
     "description": "Developed an advanced system for real-time traffic management utilizing machine learning algorithms and weather data. This project provides accurate traffic predictions and suggestions for route optimization.",
     "techStack": ["Python", "Random Forest", "Gradient Boosting", "KNN", "SVM", "OpenWeatherMap API"],
     "link": "https://github.com/anilsinthu114/real_time_traffic_mangement",
@@ -81,13 +70,13 @@
     "status": "Completed"
   },
   {
-    "title": "Bible Verse Generator",
+    "title": "Verse Of Hope",
     "description": "Created an interactive website that generates random Bible verses. This project serves as a daily inspiration tool for users seeking spiritual guidance.",
     "techStack": ["HTML", "CSS", "JavaScript", "React"],
     "link": "https://github.com/anilsinthu114/biblequotegenerator",
     "icon": "FaGithub",
     "status": "Completed",
-    "liveLink": "https://getbibleverse.vercel.app"
+    "liveLink": "https://verseofhope.vercel.app"
   },
   {
     "title": "Detection of Covid-19 using Chest X-Ray Images",
@@ -103,6 +92,14 @@
     "techStack": ["Java", "MySQL", "Eclipse IDE", "Java Servlet", "JSP", "JSTL", "JDBC"],
     "link": "https://github.com/anilsinthu114/service-management-system",
     "icon": "FaGithub",
+    "status": "Completed"
+  },
+  {
+    "title": "Bulk Image Upload API",
+    "description": "Created a robust Node.js Express API for efficient management of bulk image uploads. This project significantly improved data handling capabilities for a client's e-commerce platform.",
+    "techStack": ["Node.js", "Express", "MySQL", "React"],
+    "link": "private",
+    "icon": "FaLock",
     "status": "Completed"
   }
 ]
