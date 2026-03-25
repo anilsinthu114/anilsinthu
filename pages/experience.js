@@ -1,87 +1,93 @@
 import { motion } from 'framer-motion';
-import React from 'react';
-import { FaBriefcase, FaCalendarAlt, FaChevronRight, FaMapMarkerAlt, FaTrophy } from 'react-icons/fa';
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
-import experiences from '../data/experiences.json';
+import { FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
+import experiencesData from '../data/experiences.json';
 
-const ExperienceCard = ({ exp, index }) => (
-  <motion.div
-    key={index}
-    className="mb-8 md:mb-16 bg-white bg-opacity-90 backdrop-filter backdrop-blur-lg shadow-xl rounded-xl p-6 md:p-10 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
-    initial={{ opacity: 0, y: 50 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5, delay: index * 0.2 }}
-  >
-    <div className="flex flex-col md:flex-row items-start md:items-center mb-6">
-      <div className="bg-blue-100 p-3 rounded-full mr-4 mb-4 md:mb-0">
-        <FaBriefcase className="text-3xl md:text-4xl text-blue-600" />
-      </div>
-      <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-800">{exp.title}</h2>
-        <h3 className="text-xl md:text-2xl text-blue-600">{exp.company || exp.college}</h3>
-        <div className="flex items-center mt-2 text-gray-600">
-          <FaMapMarkerAlt className="mr-2 text-blue-500" />
-          <p className="text-sm md:text-base">{exp.location}</p>
+const ExperienceCard = ({ exp, index }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+      className="relative pl-8 md:pl-0 mb-12 md:mb-20 last:mb-0 group/timeline"
+    >
+      {/* Timeline Line (Desktop only) */}
+      <div className="hidden md:block absolute left-1/2 -ml-[1px] w-[2px] h-full bg-gradient-to-b from-white/10 via-white/5 to-transparent" />
+
+      <div className={`md:flex justify-between items-center w-full ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+        
+        {/* Glowing Timeline Dot */}
+        <div className="absolute left-[-5px] top-8 md:left-1/2 md:-ml-[11px] w-6 h-6 rounded-full bg-slate-950 border-4 border-slate-800 group-hover/timeline:border-emerald-500 transition-colors duration-500 z-10 flex items-center justify-center">
+          <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 opacity-0 group-hover/timeline:opacity-100 transition-opacity duration-500 shadow-[0_0_10px_rgba(16,185,129,1)]" />
+        </div>
+
+        {/* Empty space for alternating layout */}
+        <div className="hidden md:block w-5/12" />
+
+        {/* Content Card */}
+        <div className="w-full md:w-5/12 bg-slate-900/40 backdrop-blur-xl border border-white/5 rounded-3xl p-6 sm:p-8 shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:border-white/20 hover:shadow-[0_12px_48px_rgba(0,0,0,0.5)] transition-all duration-500 relative overflow-hidden group">
+          <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+          
+          <div className="relative z-10">
+            <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-slate-100 group-hover:text-emerald-400 transition-colors duration-300 mb-2">{exp.title}</h3>
+            
+            <h4 className="text-slate-300 font-medium text-base mb-6 inline-flex border-b border-white/10 pb-4 w-full">{exp.company || exp.college}</h4>
+            
+            <div className="flex flex-wrap text-slate-400 font-light text-sm mb-6 gap-y-3 gap-x-4">
+              <div className="flex items-center bg-white/5 px-3 py-1.5 rounded-lg border border-white/5">
+                <FaCalendarAlt className="mr-2 text-emerald-500/70" />
+                <span>{exp.period}</span>
+              </div>
+              <div className="flex items-center bg-white/5 px-3 py-1.5 rounded-lg border border-white/5">
+                <FaMapMarkerAlt className="mr-2 text-indigo-500/70" />
+                <span>{exp.location}</span>
+              </div>
+            </div>
+
+            <p className="text-slate-300 font-light leading-relaxed mb-6">{exp.description}</p>
+
+            <ul className="space-y-3">
+              {exp.achievements && exp.achievements.map((ach, idx) => (
+                <li key={idx} className="text-slate-400 text-sm font-light flex items-start">
+                  <span className="text-emerald-500/50 mr-3 mt-1 text-xs">◆</span>
+                  <span className="leading-relaxed">{ach}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-    <div className="flex items-center mb-6 text-gray-600">
-      <FaCalendarAlt className="mr-2 text-blue-500" />
-      <p className="text-sm md:text-lg">{exp.period}</p>
-    </div>
-    <p className="text-gray-700 mb-8 text-base md:text-xl leading-relaxed">{exp.description}</p>
-    <div className="bg-blue-50 p-6 md:p-8 rounded-xl">
-      <h4 className="text-xl md:text-2xl font-bold mb-6 flex items-center text-blue-700">
-        <FaTrophy className="mr-3" />
-        Key Achievements
-      </h4>
-      <ul className="space-y-4">
-        {exp.achievements.map((achievement, i) => (
-          <motion.li
-            key={i}
-            className="flex items-start"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.3, delay: i * 0.1 }}
-          >
-            <FaChevronRight className="text-blue-500 mt-1 mr-3 flex-shrink-0" />
-            <span className="text-gray-700 text-sm md:text-lg">{achievement}</span>
-          </motion.li>
-        ))}
-      </ul>
-    </div>
-  </motion.div>
-);
+    </motion.div>
+  );
+};
 
 export default function Experience() {
   return (
-    <>
-      <Navbar />
-      <main className="min-h-screen bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 py-16">
-        <div className="container mx-auto px-4">
-          <motion.h1
-            className="text-4xl md:text-6xl font-bold mb-8 md:mb-16 text-center text-gray-800 relative"
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            Professional Experience
-            {/* <motion.div
-              className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 md:w-24 h-1 bg-blue-500"
-              initial={{ width: 0 }}
-              animate={{ width: '100%' }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            /> */}
-          </motion.h1>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {experiences.map((exp, index) => (
-              <ExperienceCard key={index} exp={exp} index={index} />
-            ))}
-          </div>
-        </div>
-      </main>
-      <Footer />
-    </>
+    <div className="max-w-6xl mx-auto py-12 px-4 sm:px-6 relative">
+      
+      {/* Mobile-only continuous timeline line */}
+      <div className="md:hidden absolute left-[22px] top-48 bottom-10 w-[2px] bg-gradient-to-b from-white/10 via-white/5 to-transparent z-0" />
+
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        className="mb-16 md:mb-24 md:text-center relative z-10"
+      >
+        <span className="text-emerald-400 font-semibold tracking-wider uppercase text-sm mb-4 block">History</span>
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400 mb-6">
+          Engineering Trajectory.
+        </h1>
+        <p className="text-slate-400 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed">
+          Delivering robust platform solutions, optimizing deployment phases, and enforcing strict security protocols across production ecosystems.
+        </p>
+      </motion.div>
+
+      <div className="pt-8 relative z-10">
+        {experiencesData.map((exp, index) => (
+          <ExperienceCard key={index} exp={exp} index={index} />
+        ))}
+      </div>
+
+    </div>
   );
 }

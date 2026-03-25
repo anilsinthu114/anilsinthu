@@ -1,168 +1,129 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaPaperPlane } from 'react-icons/fa';
+import { FaPaperPlane, FaSpinner } from 'react-icons/fa';
 
 export default function ContactForm() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
+  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
     try {
-      // Basic validation
       if (!formData.name || !formData.email || !formData.subject || !formData.message) {
         throw new Error('Please fill in all fields');
       }
 
-      // Email validation
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(formData.email)) {
         throw new Error('Please enter a valid email address');
       }
 
-      // Send email using mailto
-      const mailtoLink = `mailto:sav19008cm049@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
+      await new Promise(resolve => setTimeout(resolve, 800));
+
+      const mailtoLink = `mailto:anilsinthu114@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
         `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
       )}`;
       
       window.location.href = mailtoLink;
-
-      // Clear form after opening mail client
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      });
-      
+      setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
-      alert(error.message || 'Failed to send message. Please try again.');
+      alert(error.message || 'Failed to prepare message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const InputWrapper = ({ label, id, children }) => (
+    <div className="space-y-2">
+      <label htmlFor={id} className="block text-sm font-medium text-slate-300 ml-1 tracking-wide">{label}</label>
+      <div className="relative group/input">
+        <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-indigo-500/20 rounded-xl blur-[2px] opacity-0 group-focus-within/input:opacity-100 transition-opacity duration-300" />
+        {children}
+      </div>
+    </div>
+  );
+
+  const inputClasses = "w-full bg-slate-900/50 backdrop-blur-sm border border-white/10 text-white rounded-xl px-4 py-3.5 focus:outline-none focus:border-emerald-500/50 transition-all duration-300 placeholder:text-slate-500 font-light relative z-10 shadow-[inset_0_2px_10px_rgba(0,0,0,0.3)]";
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="relative w-full max-w-2xl mx-auto"
-    >
-      <div 
-        className="absolute inset-0 bg-cover bg-center opacity-5 rounded-lg"
-        style={{
-          backgroundImage: "url('/images/contact-bg.jpg')",
-          filter: 'blur(4px)'
-        }}
-      />
-      
-      <form 
-        onSubmit={handleSubmit}
-        className="relative bg-white bg-opacity-90 backdrop-blur-sm rounded-lg shadow-xl p-8"
+    <form onSubmit={handleSubmit} className="space-y-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <InputWrapper label="Name" id="name">
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+            className={inputClasses}
+            placeholder="John Doe"
+          />
+        </InputWrapper>
+
+        <InputWrapper label="Email" id="email">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            className={inputClasses}
+            placeholder="john@example.com"
+          />
+        </InputWrapper>
+      </div>
+
+      <InputWrapper label="Subject" id="subject">
+        <input
+          type="text"
+          id="subject"
+          name="subject"
+          value={formData.subject}
+          onChange={handleChange}
+          required
+          className={inputClasses}
+          placeholder="System Architecture Consultation"
+        />
+      </InputWrapper>
+
+      <InputWrapper label="Message" id="message">
+        <textarea
+          id="message"
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+          required
+          rows="5"
+          className={`${inputClasses} resize-none`}
+          placeholder="Let's build something scalable..."
+        />
+      </InputWrapper>
+
+      <motion.button
+        type="submit"
+        disabled={isSubmitting}
+        whileTap={{ scale: 0.98 }}
+        className="w-full bg-gradient-to-r from-emerald-500 to-indigo-500 hover:from-emerald-400 hover:to-indigo-400 text-white font-medium py-4 rounded-xl shadow-[0_4px_20px_rgba(16,185,129,0.3)] hover:shadow-[0_8px_30px_rgba(16,185,129,0.5)] flex items-center justify-center space-x-3 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed border border-white/10 relative overflow-hidden group"
       >
-        <div className="space-y-6">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2 }}
-          >
-            <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-colors"
-              placeholder="Your name"
-            />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3 }}
-          >
-            <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-colors"
-              placeholder="your.email@example.com"
-            />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.4 }}
-          >
-            <label htmlFor="subject" className="block text-gray-700 font-medium mb-2">
-              Subject
-            </label>
-            <input
-              type="text"
-              id="subject"
-              name="subject"
-              value={formData.subject}
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-colors"
-              placeholder="What is this regarding?"
-            />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.5 }}
-          >
-            <label htmlFor="message" className="block text-gray-700 font-medium mb-2">
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-              rows="5"
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-colors resize-none"
-              placeholder="Your message here..."
-            />
-          </motion.div>
-
-          <motion.button
-            type="submit"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="w-full bg-blue-500 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-600 transition-colors duration-300 flex items-center justify-center space-x-2"
-          >
-            <span>Send Message</span>
-            <FaPaperPlane className="text-lg" />
-          </motion.button>
-        </div>
-      </form>
-    </motion.div>
+        <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[200%] group-hover:animate-[shimmer_2s_infinite]" />
+        
+        {isSubmitting ? (
+          <FaSpinner className="animate-spin text-lg relative z-10" />
+        ) : (
+          <div className="flex items-center space-x-2 relative z-10">
+            <span className="text-base tracking-wide">Initialize Communication</span>
+            <FaPaperPlane className="text-sm opacity-80" />
+          </div>
+        )}
+      </motion.button>
+    </form>
   );
 }

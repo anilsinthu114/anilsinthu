@@ -1,105 +1,170 @@
 [
   {
-    "title": "WhatsApp Automation for Payment Receipts",
-    "description": "Developed a Python-based system that automates the process of sending payment receipts via WhatsApp. This project streamlines business operations by reducing manual effort and improving customer communication.",
-    "techStack": ["Python", "Flask", "Twilio API"],
-    "link": "https://github.com/anilsinthu73/whatsapp_msg_automation",
-    "icon": "FaGithub",
-    "status": "In Progress"
-  },
-
-{
-  "title": "Adaptive Compression Techniques for Enhancing Efficiency in Code-Centric Models",
-  "description": "Implemented advanced compression algorithms to optimize code-centric machine learning models, resulting in reduced model size while maintaining performance. This research project focused on improving deployment efficiency in resource-constrained environments.",
-  "techStack": ["Python", "TensorFlow", "PyTorch", "Deep Learning", "Model Compression", "Quantization", "Pruning", "Hugging Face", "Transformers"],
-  "link": "https://github.com/anilsinthu-73/adaptive-compression-codebert",
-  "icon": "FaGithub",
-  "status": "Completed"
-},
-{
-  "title": "Network Packet Sniffer",
-  "description": "A real-time network packet sniffer that captures and analyzes network traffic using Python. Features include protocol detection, live updates via Socket.IO, packet filtering, and a React-based dashboard for visualization.",
-  "techStack": ["Python", "Flask", "Socket.IO", "Scapy", "React.js", "Chart.js", "Bootstrap", "JavaScript", "HTML", "CSS"],
-  "link": "https://github.com/anilsinthu114/network-packet-sniffer",
-  "icon": "FaGithub",
-  "liveLink": "https://network-packet-sniffer.vercel.app",
-  "status": "Completed"
-},
-{
-  "title": "Waterdip Hotel Dashboard",
-  "description": "Developed a comprehensive hotel management dashboard enabling administrators to efficiently manage bookings, customer details, room availability, and hotel services. Features include room management, booking system, customer management, analytics dashboard, and secure user authentication.",
-  "techStack": ["React.js", "Node.js", "Express.js", "MySQL", "CSS/SCSS"],
-  "link": "https://github.com/anilsinthu73/waterdip-hotel-dashboard",
-  "icon": "FaGithub",
-  "status": "Completed",
-  "liveLink":"https://waterdip-hotel-dashboard.vercel.app/"
-},
-{
-    "title": "RRM Registration System",
-    "description": "Engineered a comprehensive system for managing PhD scholar data, featuring dynamic form handling and secure file uploads. This project enhanced the efficiency of the university's registration process.",
-    "techStack": ["Node.js", "Express", "MySQL", "React"],
-    "link": "https://github.com/anilsinthu114/rrmregistartions",
-    "icon": "FaLock",
-    "status": "Completed",
-    "liveLink":"https://rrmregistartions.vercel.app"
+    "title": "JNTU-GV E-Payment Gateway",
+    "description": "Sole architect and lead developer of the university's comprehensive E-Payment software. Managed end-to-end lifecycle including planning, architectural design, secure integrations, deployment, and ongoing server maintenance.",
+    "techStack": [
+      "Node.js",
+      "Express",
+      "Payment APIs",
+      "Server Admin"
+    ],
+    "link": "https://pay.jntugv.edu.in",
+    "icon": "FaServer",
+    "status": "Live",
+    "liveLink": "https://pay.jntugv.edu.in"
   },
   {
-    "title": "RRM Registration API ",
-    "description": "Engineered a comprehensive system for managing PhD scholar data, featuring dynamic form handling and secure file uploads. This project enhanced the efficiency of the university's registration process.",
-    "techStack": ["Node.js", "Express", "MySQL", "React"],
+    "title": "Digital Monitoring Cell (V1 & V2)",
+    "description": "Architected and engineered the central Digital Monitoring Cell platform for JNTU-GV. Led the initial development and subsequent V1 and V2 iterative scaling to monitor university-wide digital traffic.",
+    "techStack": [
+      "Node.js",
+      "Express",
+      "React",
+      "Analytics"
+    ],
+    "link": "https://dmc.jntugv.edu.in",
+    "icon": "FaServer",
+    "status": "Live",
+    "liveLink": "https://dmc.jntugv.edu.in"
+  },
+  {
+    "title": "JNTU-GV Official Portal & CMS Console",
+    "description": "Co-developed the primary digital presence and enterprise portal for Jawaharlal Nehru Technological University Gurajada Vizianagaram. Continually deploying and maintaining this infrastructure as the University Server Administrator.",
+    "techStack": [
+      "React",
+      "Node.js",
+      "MySQL",
+      "Server Admin"
+    ],
+    "link": "private",
+    "icon": "FaServer",
+    "liveLink": "https://jntugv.edu.in",
+    "status": "Live"
+  },
+  {
+    "title": "Directorate of Research & Development Portal",
+    "description": "Engineered the official web portal for the DR&D department at JNTU-GV. Built robust architectures for handling research submissions, grants tracking, and faculty publications.",
+    "techStack": [
+      "Node.js",
+      "Express",
+      "MySQL"
+    ],
+    "link": "https://drnd.jntugv.edu.in",
+    "icon": "FaDatabase",
+    "status": "Live",
+    "liveLink": "https://drnd.jntugv.edu.in"
+  },
+  {
+    "title": "Alumni Network Platform",
+    "description": "Co-developed the dedicated Alumni Portal Page and Job Opportunities Cell infrastructure for JNTU-GV, facilitating seamless career networking and job dispatching for thousands of graduates.",
+    "techStack": [
+      "Java",
+      "JSP",
+      "MySQL",
+      "Tomcat",
+      "Servlets",
+      "JDBC"
+    ],
+    "link": "https://alumni.jntugv.edu.in",
+    "icon": "FaServer",
+    "liveLink": "https://alumni.jntugv.edu.in",
+    "status": "Live"
+  },
+  {
+    "title": "Job Opportunities Cell",
+    "description": "Co-developed the dedicated Alumni Portal Page and Job Opportunities Cell infrastructure for JNTU-GV, facilitating seamless career networking and job dispatching for thousands of graduates.",
+    "techStack": [
+      "React",
+      "Node.js",
+      "REST API"
+    ],
+    "link": "https://uyoppurtunites.jntugv.edu.in",
+    "icon": "FaServer",
+    "status": "Live",
+    "liveLink": "https://uyoppurtunites.jntugv.edu.in"
+  },
+  {
+    "title": "PGCPAITL - Website & Application Manager",
+    "description": "Developed both the main website and the internal application manager for PGCPAITL, alongside a secure Internal E-Office administrative system and the dedicated web page for the Pharmacy department.",
+    "techStack": [
+      "Node.js",
+      "Auth",
+      "Internal Portals",
+      "Java",
+      "JSP",
+      "Tomcat"
+    ],
+    "link": "https://pgcpaitl.jntugv.edu.in",
+    "icon": "FaLock",
+    "status": "Live",
+    "liveLink": "https://pgcpaitl.jntugv.edu.in"
+  },
+  {
+    "title": "ML Model Compression Architecture",
+    "description": "Researched and implemented adaptive compression strategies specifically for code-centric NLP models. Utilized quantization and aggressive pruning to reduce model size for constrained production environments without sacrificing performance.",
+    "techStack": [
+      "Python",
+      "TensorFlow",
+      "PyTorch",
+      "Model Compression",
+      "Transformers"
+    ],
+    "link": "https://github.com/anilsinthu-73/adaptive-compression-codebert",
+    "icon": "FaGithub",
+    "status": "Completed"
+  },
+  {
+    "title": "Enterprise Hotel Management API System",
+    "description": "Developed robust backend infrastructure for comprehensive hotel management. Built secure REST APIs handling reservations, real-time availability sync, and relational data architecture using MySQL.",
+    "techStack": [
+      "Node.js",
+      "Express.js",
+      "MySQL",
+      "Authentication"
+    ],
+    "link": "https://github.com/anilsinthu73/waterdip-hotel-dashboard",
+    "icon": "FaGithub",
+    "status": "Completed",
+    "liveLink": "https://waterdip-hotel-dashboard.vercel.app/"
+  },
+  {
+    "title": "RRM PhD Registration Platform",
+    "description": "Engineered an end-to-end registration platform optimized for concurrent users. Designed dynamic MySQL schemas to handle complex form data and established a secure file ingestion pipeline.",
+    "techStack": [
+      "Node.js",
+      "Express",
+      "MySQL",
+      "File I/O"
+    ],
     "link": "https://github.com/anilsinthu114/api-rrmregistrations",
     "icon": "FaLock",
     "status": "Completed",
-    "liveLink":"https://api-rrmregistrations.vercel.app/"
+    "liveLink": "https://rrmregistartions.vercel.app/"
   },
   {
-    "title": "Portfolio Website",
-    "description": "Designed and developed a personal portfolio website using Next.js and Tailwind CSS. This project showcases my skills and projects in an interactive and responsive manner.",
-    "techStack": ["Next.js", "TypeScript ","Tailwind CSS"],
-    "link": "https://github.com/anilsinthu114/anilsinthu",
-    "icon": "FaGithub",
-    "status": "Completed",
-    "liveLink": "https://anilsinthu.vercel.app"
-  },
-  {
-    "title": "Real-Time Traffic Prediction System",
-    "description": "Developed an advanced system for real-time traffic management utilizing machine learning algorithms and weather data. This project provides accurate traffic predictions and suggestions for route optimization.",
-    "techStack": ["Python", "Random Forest", "Gradient Boosting", "KNN", "SVM", "OpenWeatherMap API"],
+    "title": "Real-Time Traffic Prediction Engine",
+    "description": "Integrated third-party APIs (OpenWeatherMap) and machine learning engines to aggregate real-time contextual variables for high-accuracy traffic load predictions and optimized routing suggestions.",
+    "techStack": [
+      "Python",
+      "Random Forest",
+      "Gradient Boosting",
+      "External APIs"
+    ],
     "link": "https://github.com/anilsinthu114/real_time_traffic_mangement",
     "icon": "FaGithub",
     "status": "Completed"
   },
   {
-    "title": "Verse Of Hope",
-    "description": "Created an interactive website that generates random Bible verses. This project serves as a daily inspiration tool for users seeking spiritual guidance.",
-    "techStack": ["HTML", "CSS", "JavaScript", "React"],
-    "link": "https://github.com/anilsinthu114/biblequotegenerator",
-    "icon": "FaGithub",
-    "status": "Completed",
-    "liveLink": "https://verseofhope.vercel.app"
-  },
-  {
-    "title": "Detection of Covid-19 using Chest X-Ray Images",
-    "description": "Developed a deep learning model to detect Covid-19 from chest X-ray images. This project contributes to faster and more accurate diagnosis of Covid-19 cases.",
-    "techStack": ["Python", "CNN", "Keras", "TensorFlow", "OpenCV", "Deep Learning", "Machine Learning", "DenseNet121"],
-    "link": "https://github.com/anilsinthu114/DetCovid19",
-    "icon": "FaGithub",
-    "status": "Completed"
-  },
-  {
-    "title": "Service Request Management System",
-    "description": "Engineered a comprehensive system for managing service requests using Java and MySQL. This project improves customer service efficiency and request tracking for businesses.",
-    "techStack": ["Java", "MySQL", "Eclipse IDE", "Java Servlet", "JSP", "JSTL", "JDBC"],
+    "title": "Service Request Dispatch Engine",
+    "description": "Deployed a monolithic enterprise Java application for reliable service ticketing. Leveraged Servlets and JDBC with heavily optimized SQL transactions to guarantee absolute data consistency under load.",
+    "techStack": [
+      "Java",
+      "MySQL",
+      "JDBC",
+      "Servlets"
+    ],
     "link": "https://github.com/anilsinthu114/service-management-system",
     "icon": "FaGithub",
-    "status": "Completed"
-  },
-  {
-    "title": "Bulk Image Upload API",
-    "description": "Created a robust Node.js Express API for efficient management of bulk image uploads. This project significantly improved data handling capabilities for a client's e-commerce platform.",
-    "techStack": ["Node.js", "Express", "MySQL", "React"],
-    "link": "private",
-    "icon": "FaLock",
     "status": "Completed"
   }
 ]

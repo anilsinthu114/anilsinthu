@@ -1,96 +1,151 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import { useRouter } from 'next/router';
 
-const Navbar = () => {
+const navItems = [
+  { href: '#home', label: 'Home' },
+  { href: '#about', label: 'About' },
+  { href: '#skills', label: 'Skills' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#certifications', label: 'Validation' },
+  { href: '#contact', label: 'Contact' }
+];
+
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const { scrollY } = useScroll();
-  const backgroundColor = useTransform(
-    scrollY,
-    [0, 100],
-    ['rgba(31, 41, 55, 0.95)', 'rgba(31, 41, 55, 0.5)']
-  );
-
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('#home');
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 20);
+
+      // Simple active section detection for SPA
+      const sections = navItems.map(item => item.href.substring(1));
+      let current = '';
+      
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 150 && rect.bottom >= 150) {
+            current = `#${section}`;
+            break;
+          }
+        }
+      }
+      if (current && current !== activeSection) {
+        setActiveSection(current);
+      }
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [activeSection]);
 
-  const navItems = [
-    { href: '/', label: 'Home' },
-    { href: '/about', label: 'About' },
-    {href:'/blog',label:'My College Life'},
-    { href: '/projects', label: 'Projects' },
-    { href: '/experience', label: 'Experience' },
-    { href: '/skills', label: 'Skills' },    
-    { href: '/certifications', label: 'Certifications' },
-    { href: '/contact', label: 'Contact' }
-  ];
+  const handleNavClick = (e, href) => {
+    // If we're not on the index page, route to home and then hash
+    if (router.pathname !== '/') {
+      return; 
+    }
+    
+    e.preventDefault();
+    setIsOpen(false);
+    
+    // Smooth scroll if on the SPA page
+    const target = document.querySelector(href);
+    if (target) {
+      window.scrollTo({
+        top: target.offsetTop - 100, // Offset for fixed navbar
+        behavior: 'smooth'
+      });
+    }
+  };
 
   return (
-    <motion.nav
-      style={{ backgroundColor }}
-      className={`fixed top-0 left-0 right-0 z-50 text-white p-4 shadow-lg transition-all duration-300 ${
-        isScrolled ? '' : 'backdrop-blur-md'
+    <motion.nav 
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className={`fixed top-4 left-4 right-4 md:left-1/2 md:-translate-x-1/2 md:top-6 z-50 md:w-max px-6 py-3 rounded-full flex justify-between items-center transition-all duration-300 ${
+        scrolled 
+          ? 'bg-slate-900/60 backdrop-blur-md border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)]' 
+          : 'bg-slate-900/30 backdrop-blur-sm border border-transparent'
       }`}
     >
-      <div className="container mx-auto flex justify-between items-center">
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-2xl font-bold"
-        >
-          Anil Sinthu
-        </motion.div>
-        <div className="hidden md:flex space-x-6">
-          {navItems.map((item, index) => (
-            <motion.div
-              key={item.href}
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+      <Link href="/#home" scroll={false}>
+        <span onClick={(e) => handleNavClick(e, '#home')} className="text-xl font-bold tracking-tight text-white cursor-pointer mr-auto md:mr-10 flex items-center">
+          <div className="w-6 h-6 rounded-full bg-gradient-to-tr from-emerald-400 to-indigo-500 mr-2 shadow-[0_0_15px_rgba(52,211,153,0.5)]" />
+          Anil.S
+        </span>
+      </Link>
+
+      {/* Desktop Nav */}
+      <div className="hidden md:flex items-center space-x-1 border-l border-white/10 pl-6">
+        {navItems.map((item) => {
+          // If we are on the SPA index page, checking hash, otherwise just basic routing
+          const isActive = router.pathname === '/' ? activeSection === item.href : false;
+          
+          return (
+            <a 
+              key={item.href} 
+              href={router.pathname === '/' ? item.href : `/${item.href}`}
+              onClick={(e) => handleNavClick(e, item.href)}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${
+                isActive 
+                  ? 'bg-white/10 text-white shadow-[0_0_10px_rgba(255,255,255,0.05)]' 
+                  : 'text-slate-400 hover:text-white hover:bg-white/5'
+              }`}
             >
-              <Link href={item.href}>
-                <span className="hover:text-blue-400 transition-colors duration-300 cursor-pointer">
-                  {item.label}
-                </span>
-              </Link>
-            </motion.div>
-          ))}
-        </div>
-        <div className="md:hidden">
-          <button onClick={toggleMenu} className="focus:outline-none">
-            {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-          </button>
-        </div>
+              {item.label}
+            </a>
+          );
+        })}
       </div>
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: 'auto' }}
-          exit={{ opacity: 0, height: 0 }}
-          transition={{ duration: 0.3 }}
-          className="md:hidden mt-4"
-        >
-          {navItems.map((item) => (
-            <Link key={item.href} href={item.href}>
-              <span className="block py-2 px-4 hover:bg-gray-700 transition-colors duration-300 cursor-pointer">
-                {item.label}
-              </span>
-            </Link>
-          ))}
-        </motion.div>
-      )}
+
+      {/* Mobile Toggle */}
+      <button 
+        className="md:hidden p-2 text-slate-300 hover:text-white transition-colors focus:outline-none"
+        onClick={() => setIsOpen(!isOpen)}
+        aria-label="Toggle menu"
+      >
+        {isOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+      </button>
+
+      {/* Mobile Nav Dropdown */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+            className="absolute top-16 left-0 right-0 bg-slate-900/95 backdrop-blur-xl border border-white/10 rounded-2xl p-4 flex flex-col space-y-2 md:hidden shadow-2xl origin-top"
+          >
+            {navItems.map((item) => {
+              const isActive = activeSection === item.href;
+              return (
+                <a 
+                  key={item.href} 
+                  href={router.pathname === '/' ? item.href : `/${item.href}`}
+                  onClick={(e) => handleNavClick(e, item.href)}
+                  className={`block px-4 py-3 rounded-xl text-center text-sm font-medium transition-all duration-200 cursor-pointer ${
+                    isActive 
+                      ? 'bg-emerald-500/10 text-emerald-300 border border-emerald-500/20' 
+                      : 'text-slate-400 hover:bg-white/5 hover:text-white border border-transparent'
+                  }`}
+                >
+                  {item.label}
+                </a>
+              );
+            })}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
-};
-
-export default Navbar;
+}

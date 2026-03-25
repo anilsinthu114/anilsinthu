@@ -1,162 +1,106 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
-import { FaCloud, FaDatabase, FaGitAlt, FaGraduationCap, FaHtml5, FaJava, FaJs, FaLaptopCode, FaNodeJs, FaPython, FaReact, FaUserGraduate } from 'react-icons/fa';
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
+import { FaGraduationCap, FaCodeBranch, FaServer } from 'react-icons/fa';
 import data from '../data/aboutData.json';
 
-const iconMap = {
-    FaCloud, FaDatabase, FaGitAlt, FaGraduationCap, FaHtml5, FaJava, FaJs, FaLaptopCode, FaNodeJs, FaPython, FaReact, FaUserGraduate
-  };
+const GlassCard = ({ children, className = '', delay = 0 }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
+    className={`bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-3xl p-6 sm:p-10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:shadow-[0_12px_48px_rgba(0,0,0,0.5)] transition-all duration-500 relative overflow-hidden group ${className}`}
+  >
+    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+    <div className="relative z-10">{children}</div>
+  </motion.div>
+);
+
+const SectionHeader = ({ title, icon: Icon }) => (
+  <div className="flex items-center space-x-4 mb-8">
+    <div className="p-3 bg-white/5 border border-white/10 rounded-2xl text-emerald-400">
+      <Icon size={24} />
+    </div>
+    <h2 className="text-2xl font-semibold tracking-tight text-white">{title}</h2>
+  </div>
+);
 
 export default function About() {
-    const [isScrolled, setIsScrolled] = useState(false);
-    const { scrollY } = useScroll();
-    const opacity = useTransform(scrollY, [0, 200], [1, 0]);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
-    return (
-        <div className="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 min-h-screen">
-            <Navbar />
-            <main className="container mx-auto px-4 py-16">
-                <motion.div 
-                    className="flex flex-col md:flex-row items-center md:items-start mb-12 bg-white bg-opacity-80 backdrop-filter backdrop-blur-lg rounded-xl p-8 shadow-xl"
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                >
-                    <motion.div
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="md:mr-16"
-                    >
-                        <Image
-                            src="/images/sa.jpg"
-                            alt="Profile Picture"
-                            width={500}
-                            height={500}
-                            objectFit="cover"
-                        />
-                    </motion.div>
-                    <div>
-                        <motion.h1 
-                            className="text-5xl font-bold mb-6 text-gray-800"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.2, duration: 0.5 }}
-                        >
-                            About Me
-                        </motion.h1>
-                        <motion.p 
-                            className="text-xl text-gray-700 leading-relaxed"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.4, duration: 0.5 }}
-                        >
-                            I'm a passionate B.Tech student at JNTUGV, specializing in Information Technology. With a strong foundation in computer science and a keen interest in cutting-edge technologies, I've developed expertise in web development, backend services, and cybersecurity. My goal is to build efficient, scalable, and secure software solutions that make a positive impact.
-                        </motion.p>
-                    </div>
-                </motion.div>
-
-                <motion.h2 
-                    className="text-3xl font-semibold mb-6 text-gray-800 flex items-center"
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5 }}
-                >
-                    <FaLaptopCode className="mr-3 text-blue-500" />
-                    Technical Skills
-                </motion.h2>
-                <motion.div 
-                    className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12"
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                >
-                    {data.skills.map((skill, index) => {
-                        const IconComponent = iconMap[skill.icon] || FaJava;
-                        return (
-                            <motion.div 
-                                key={index} 
-                                className="flex items-center bg-white bg-opacity-80 backdrop-filter backdrop-blur-lg shadow-md rounded-lg p-5 hover:shadow-lg transition-all duration-300"
-                                whileHover={{ scale: 1.05, backgroundColor: "#f0f9ff" }}
-                                whileTap={{ scale: 0.95 }}
-                            >
-                                <IconComponent className="text-3xl mr-3 text-blue-500" />
-                                <span className="text-lg font-medium">{skill.name}</span>
-                            </motion.div>
-                        );
-                    })}
-                </motion.div>
-
-                <motion.div 
-                    className="bg-white bg-opacity-80 backdrop-filter backdrop-blur-lg rounded-xl p-8 mb-12 shadow-xl"
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.4 }}
-                >
-                    <h2 className="text-3xl font-semibold mb-6 text-gray-800 flex items-center">
-                        <FaUserGraduate className="mr-3 text-blue-500" />
-                        Academic Journey
-                    </h2>
-                    <p className="text-xl text-gray-700 leading-relaxed mb-6">
-                        Throughout my academic journey, I've worked on various projects that have honed my problem-solving skills and ability to work in team environments. I'm particularly interested in the intersection of technology and cybersecurity, always staying updated with the latest security practices and trends.
-                    </p>
-                    <h3 className="text-2xl font-semibold mb-4 flex items-center text-gray-800">
-                        <FaGraduationCap className="mr-3 text-blue-500" />
-                        Education
-                    </h3>
-                    {data.education.map((edu, index) => (
-                        <motion.div 
-                            key={index} 
-                            className="mb-6 bg-white bg-opacity-90 backdrop-filter backdrop-blur-lg p-6 rounded-lg shadow-md"
-                            initial={{ opacity: 0, x: -50 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.5, delay: 0.2 * index }}
-                            whileHover={{ boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)" }}
-                        >
-                            <h4 className="text-xl font-medium text-gray-800 mb-2">{edu.degree}</h4>
-                            <p className="text-lg text-gray-600 mb-1">{edu.institution}</p>
-                            <p className="text-md text-gray-500 mb-3">{edu.year}</p>
-                            <ul className="list-disc list-inside">
-                                {edu.achievements.map((achievement, i) => (
-                                    <li key={i} className="text-gray-700 mb-1">{achievement}</li>
-                                ))}
-                            </ul>
-                        </motion.div>
-                    ))}
-                </motion.div>
-
-                <motion.div 
-                    className="bg-white bg-opacity-80 backdrop-filter backdrop-blur-lg rounded-xl p-8 shadow-xl"
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.6 }}
-                >
-                    <h2 className="text-3xl font-semibold mb-4 text-gray-800 flex items-center">
-                        <FaLaptopCode className="mr-3 text-blue-500" />
-                        Personal Growth & Interests
-                    </h2>
-                    <p className="text-xl text-gray-700 leading-relaxed mb-6">
-                        Beyond coding, I'm deeply passionate about continuous learning and personal development. I actively engage in coding competitions, contribute to open-source projects, and participate in hackathons to challenge myself. I have a keen interest in cybersecurity and enjoy exploring ethical hacking in my spare time. Additionally, I'm focused on developing leadership skills through team projects and technical community involvement.
-                    </p>
-                    <h3 className="text-2xl font-semibold mb-4 text-gray-800">Hobbies</h3>
-                    <ul className="list-disc list-inside text-xl text-gray-700">
-                        {data.hobbies.map((hobby, index) => (
-                            <li key={index}>{hobby}</li>
-                        ))}
-                    </ul>
-                </motion.div>
-            </main>
-            <Footer />
+  return (
+    <div className="max-w-4xl mx-auto py-12 px-4 sm:px-6">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        className="mb-12 md:mb-16 text-center"
+      >
+        <div className="inline-flex items-center justify-center p-3 bg-indigo-500/10 text-indigo-400 rounded-2xl mb-6 border border-indigo-500/20 backdrop-blur-md">
+          <FaServer size={24} />
         </div>
-    );
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400 mb-6">
+          Architecting Reliability.
+        </h1>
+        <p className="text-slate-400 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed mb-6">
+          I specialize in building robust, highly available backend infrastructure. 
+          My focus is on writing clean code, optimizing database performance, 
+          and deploying scalable applications utilizing modern cloud technologies.
+        </p>
+        <p className="text-emerald-400/80 font-mono text-sm tracking-wide bg-emerald-500/10 inline-block px-4 py-2 rounded-xl border border-emerald-500/20 shadow-[0_4px_20px_rgba(16,185,129,0.1)]">
+          Currently engineering at Digital Monitoring Cell - JNTU-GV
+        </p>
+      </motion.div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        
+        {/* Education Timeline */}
+        <GlassCard delay={0.1}>
+          <SectionHeader title="Education" icon={FaGraduationCap} />
+          <div className="space-y-10">
+            {data.education.map((edu, idx) => (
+              <div key={idx} className="relative pl-6 border-l border-white/10">
+                <div className="absolute w-3 h-3 rounded-full bg-emerald-500/20 border border-emerald-500/50 -left-[6.5px] top-1.5 shadow-[0_0_10px_rgba(16,185,129,0.5)]" />
+                <h3 className="text-lg font-semibold text-slate-200">{edu.degree}</h3>
+                <p className="text-emerald-400 font-medium mb-1 text-sm">{edu.institution}</p>
+                <div className="text-slate-500 text-xs font-mono mb-4 px-2 py-1 bg-white/5 inline-block rounded-md border border-white/5">
+                  {edu.year}
+                </div>
+                <ul className="space-y-2">
+                  {edu.achievements.map((ach, i) => (
+                    <li key={i} className="text-slate-400 font-light text-sm flex items-start">
+                      <span className="text-emerald-500/50 mr-2 mt-1 blur-[0.5px]">►</span>
+                      <span className="leading-relaxed">{ach}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </GlassCard>
+
+        {/* Philosophy & Interests */}
+        <div className="space-y-6 md:space-y-8">
+          <GlassCard delay={0.2} className="relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 blur-[50px] rounded-full pointer-events-none" />
+            <SectionHeader title="Philosophy" icon={FaServer} />
+            <p className="text-slate-400 font-light leading-relaxed">
+              I believe that great software is defined by its architecture under the hood. 
+              My approach prioritizes testability, rigorous security protocols, and efficient 
+              data handling capabilities over superficial frontend features. Every millisecond counts.
+            </p>
+          </GlassCard>
+
+          <GlassCard delay={0.3}>
+            <SectionHeader title="Interests" icon={FaCodeBranch} />
+            <div className="flex flex-wrap gap-2">
+              {data.hobbies.map((hobby, idx) => (
+                <span key={idx} className="bg-white/5 border border-white/10 text-slate-300 font-medium text-sm px-4 py-2 rounded-xl hover:bg-white/10 transition-colors shadow-sm">
+                  {hobby}
+                </span>
+              ))}
+            </div>
+          </GlassCard>
+        </div>
+      </div>
+    </div>
+  );
 }

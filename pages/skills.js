@@ -1,102 +1,90 @@
 import { motion } from 'framer-motion';
-import React from 'react';
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
 import skillData from '../data/skills.json';
-
-// Import all necessary icons
 import {
-  FaAws,
-  FaCss3Alt,
-  FaDatabase,
-  FaDocker,
-  FaGitAlt,
-  FaHtml5,
-  FaJava,
-  FaJs,
-  FaLinux,
-  FaNodeJs,
-  FaPython,
-  FaReact
+  FaAws, FaDatabase, FaDocker, FaGitAlt, FaJava,
+  FaLinux, FaNodeJs, FaPython, FaPlug, FaProjectDiagram,
+  FaServer, FaNetworkWired
 } from 'react-icons/fa';
-import { SiC, SiCplusplus, SiMongodb, SiMysql, SiPostgresql } from 'react-icons/si';
+import { SiC, SiMongodb, SiMysql, SiPostgresql } from 'react-icons/si';
 
-// Map skill names from JSON to actual React icons
 const iconMap = {
-  FaJava, FaPython, FaJs, FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaGitAlt, FaDatabase,
-  FaLinux, FaDocker, FaAws, SiCplusplus, SiMysql, SiMongodb, SiPostgresql, SiC
+  FaJava, FaPython, FaNodeJs, SiC,
+  SiMysql, SiPostgresql, SiMongodb, FaDatabase,
+  FaLinux, FaDocker, FaServer, FaAws,
+  FaGitAlt, FaPlug, FaProjectDiagram, FaNetworkWired
 };
 
-// Function to determine proficiency level
-const getProficiencyLevel = (level) => {
-  if (level >= 90) return 'Expert';
-  if (level >= 80) return 'Advanced';
-  if (level >= 70) return 'Intermediate';
-  if (level >= 60) return 'Proficient';
-  return 'Beginner';
-};
+// Removed subjective proficiency labels in favor of an AI-assisted ecosystem layout
+
+const GlassCard = ({ children, delay = 0 }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
+    className="bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-3xl p-6 md:p-8 shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:border-white/20 transition-all duration-500 relative overflow-hidden group"
+  >
+    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+    <div className="relative z-10">{children}</div>
+  </motion.div>
+);
 
 export default function Skills() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
-      <Navbar />
-      <main className="container mx-auto px-4 py-16">
-        <motion.h1 
-          className="text-4xl font-bold mb-12 text-center text-gray-800"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          My Skills
-        </motion.h1>
+    <div className="max-w-5xl mx-auto py-12 px-4 sm:px-6 relative">
+      
+      {/* Background ambient glow specific to Skills page */}
+      <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[60vw] h-[40vw] bg-emerald-600/5 blur-[120px] rounded-full pointer-events-none z-0" />
 
-        {/* Iterate over skill categories */}
-        {skillData.skillCategories.map((category, index) => (
-          <motion.div 
-            key={index} 
-            className="mb-12"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-          >
-            <h2 className="text-3xl font-semibold mb-6 text-gray-700">{category.name}</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              
-              {/* Iterate over skills in the category */}
-              {category.skills.map((skill, skillIndex) => {
-                const IconComponent = iconMap[skill.icon] || FaJava; // Default to FaJava if icon is undefined
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="mb-16 text-center relative z-10"
+      >
+        <div className="inline-flex items-center justify-center p-3 bg-emerald-500/10 text-emerald-400 rounded-2xl mb-6 border border-emerald-500/20 backdrop-blur-md shadow-[0_0_20px_rgba(16,185,129,0.2)]">
+          <FaDatabase size={24} />
+        </div>
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-400 mb-6">
+          Technical Arsenal.
+        </h1>
+        <p className="text-slate-400 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed">
+          My core production ecosystem. I heavily leverage modern AI-assisted engineering workflows to rapidly architect, debug, and scale systems across these domains.
+        </p>
+      </motion.div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 relative z-10">
+        {skillData.skillCategories.map((category, idx) => (
+          <GlassCard key={idx} delay={idx * 0.1}>
+            <div className="flex items-center mb-8 pb-4 border-b border-white/5">
+              <div className="w-2 h-2 rounded-full bg-emerald-500 mr-3 shadow-[0_0_10px_rgba(16,185,129,0.8)]" />
+              <h2 className="text-xl font-semibold tracking-tight text-slate-200">
+                {category.name}
+              </h2>
+            </div>
+            
+            <div className="flex flex-wrap gap-3">
+              {category.skills.map((skill, skillIdx) => {
+                const IconComponent = iconMap[skill.icon] || FaServer;
                 
                 return (
                   <motion.div 
-                    key={skillIndex} 
-                    className="bg-white shadow-lg rounded-xl p-6 hover:shadow-xl transition-all duration-300"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                    key={skillIdx} 
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 + (skillIdx * 0.05), duration: 0.4 }}
+                    className="flex items-center gap-2.5 px-4 py-2 bg-slate-900/50 hover:bg-slate-800 border border-white/5 hover:border-emerald-500/30 rounded-full cursor-default transition-all duration-300 shadow-[0_4px_12px_rgba(0,0,0,0.2)] hover:shadow-[0_0_20px_rgba(16,185,129,0.15)] group/badge"
                   >
-                    <div className="flex items-center mb-4">
-                      <IconComponent className="mr-3 text-3xl text-blue-600" />
-                      <span className="font-medium text-xl text-gray-800">{skill.name}</span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-3 mb-3">
-                      <motion.div
-                        className="bg-blue-600 h-3 rounded-full"
-                        style={{ width: `${skill.level}%` }}
-                        initial={{ width: 0 }}
-                        animate={{ width: `${skill.level}%` }}
-                        transition={{ duration: 1, delay: skillIndex * 0.1 }}
-                      ></motion.div>
-                    </div>
-                    <div className="text-sm font-medium text-gray-600">
-                      {getProficiencyLevel(skill.level)} ({skill.level}%)
-                    </div>
+                    <IconComponent className="text-slate-500 group-hover/badge:text-emerald-400 transition-colors text-sm" />
+                    <span className="text-slate-300 group-hover/badge:text-white text-sm font-medium transition-colors">{skill.name}</span>
                   </motion.div>
                 );
               })}
             </div>
-          </motion.div>
+          </GlassCard>
         ))}
-      </main>
-      <Footer />
+      </div>
+
     </div>
   );
 }
