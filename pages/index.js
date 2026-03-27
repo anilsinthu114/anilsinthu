@@ -69,21 +69,22 @@ export default function Home() {
               </div>
 
               {/* Profile Photo */}
-              <div className="relative shrink-0 hidden sm:block md:-mr-4 mt-6 md:mt-0 xl:-mr-12">
+              <div className="relative shrink-0 mt-8 md:mt-0 flex justify-center w-full md:w-auto">
                 <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500 to-indigo-500 rounded-[2.5rem] blur-2xl opacity-30 animate-pulse" />
                 <motion.div
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="w-40 h-40 md:w-60 md:h-60 relative rounded-[2.5rem] overflow-hidden border-2 border-white/20 shadow-[0_20px_40px_rgba(0,0,0,0.4)] z-10 hover:shadow-[0_20px_50px_rgba(52,211,153,0.3)] transition-shadow duration-500"
+                  className="w-48 sm:w-56 md:w-64 relative rounded-[2rem] overflow-hidden border-2 border-white/20 shadow-[0_20px_40px_rgba(0,0,0,0.4)] z-10 hover:shadow-[0_20px_50px_rgba(52,211,153,0.3)] transition-shadow duration-500 mx-auto md:mx-0"
                 >
                   <div className="absolute inset-0 bg-slate-900/10 hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none" />
                   <Image
                     src="/images/profile_sa.jpg"
                     alt="Anil Sinthu"
-                    fill
-                    sizes="(max-width: 768px) 160px, 240px"
+                    width={500}
+                    height={500}
+                    style={{ width: '100%', height: 'auto' }}
                     priority
-                    className="object-cover scale-[1.03] hover:scale-100 transition-transform duration-700"
+                    className="hover:scale-105 transition-transform duration-700 block"
                   />
                 </motion.div>
               </div>

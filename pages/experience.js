@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
+import Image from 'next/image';
 import experiencesData from '../data/experiences.json';
 
 const ExperienceCard = ({ exp, index }) => {
@@ -28,11 +29,19 @@ const ExperienceCard = ({ exp, index }) => {
           <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
           
           <div className="relative z-10">
-            <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-slate-100 group-hover:text-emerald-400 transition-colors duration-300 mb-2">{exp.title}</h3>
+            <div className="flex justify-between items-start mb-4">
+              <div>
+                <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-slate-100 group-hover:text-emerald-400 transition-colors duration-300 mb-2">{exp.title}</h3>
+                <h4 className="text-slate-300 font-medium text-base">{exp.company || exp.college}</h4>
+              </div>
+              {exp.image && (
+                <div className="relative w-12 h-12 md:w-16 md:h-16 shrink-0 ml-4 rounded-xl overflow-hidden border border-white/10 bg-white/5 p-1">
+                  <Image src={exp.image} alt={exp.company || exp.college} fill className="object-cover rounded-lg" sizes="64px" />
+                </div>
+              )}
+            </div>
             
-            <h4 className="text-slate-300 font-medium text-base mb-6 inline-flex border-b border-white/10 pb-4 w-full">{exp.company || exp.college}</h4>
-            
-            <div className="flex flex-wrap text-slate-400 font-light text-sm mb-6 gap-y-3 gap-x-4">
+            <div className="flex flex-wrap text-slate-400 font-light text-sm mb-6 gap-y-3 gap-x-4 border-t border-white/10 pt-4 w-full">
               <div className="flex items-center bg-white/5 px-3 py-1.5 rounded-lg border border-white/5">
                 <FaCalendarAlt className="mr-2 text-emerald-500/70" />
                 <span>{exp.period}</span>

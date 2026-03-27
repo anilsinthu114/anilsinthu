@@ -3,7 +3,8 @@
     "title": "Platform Engineer & Server Administrator",
     "company": "Digital Monitoring Cell - JNTU-GV",
     "location": "Vizianagaram, Andhra Pradesh",
-    "period": "2024 - Present",
+    "image": "/images/jntugv_logo.jpg",
+    "period": "Sept 2024 - Present",
     "description": "Solely orchestrating the end-to-end lifecycle of all university applications—from system architecture and scalable design to fully automated production deployment.",
     "achievements": [
       "Solely direct application lifecycles across 10+ core structural platforms, encompassing massive legacy migrations, robust feature development, and entirely new fault-tolerant portals.",
@@ -15,7 +16,8 @@
     "title": "Data Engineering & Platform Developer",
     "company": "Software Development Cell (Examination Section) - JNTU-GV",
     "location": "Vizianagaram, Andhra Pradesh",
-    "period": "2024 - Present",
+    "image": "/images/jntugv_logo.jpg",
+    "period": "Sept 2024 - Present",
     "description": "Concurrently engineering massive data pipelines and governmental APIs to securely process and distribute university-wide examination results.",
     "achievements": [
       "Architect complex data aggregation systems specifically designed to parse, validate, and analyze extremely heavy datasets consisting of continuous university examination results.",
@@ -27,7 +29,8 @@
     "title": "Server Administrator & Full Stack Developer Intern",
     "company": "Jawaharlal Nehru Technological University (JNTU-GV)",
     "location": "Vizianagaram, Andhra Pradesh",
-    "period": "2023 - 2024",
+    "image": "/images/jntugv_logo.jpg",
+    "period": "Feb 2024 - Aug 2024",
     "description": "Collaborated with cross-functional development teams to build, seamlessly migrate, and harden the foundational digital architecture for JNTU-GV.",
     "achievements": [
       "Engineered the central JNTU-GV CMS module and globally deployed 14 highly customized, high-traffic PHP university sub-domains sustaining 10,000+ daily concurrent requests.",
@@ -36,39 +39,16 @@
     ]
   },
   {
-    "title": "Cybersecurity & Cloud Systems Intern",
-    "company": "SkillDzire (in collab. with APSCHE)",
-    "location": "Remote",
-    "period": "May 2024 - July 2024",
-    "description": "Analyzed cloud infrastructure security and implemented modern cybersecurity practices.",
-    "achievements": [
-      "Conducted vulnerability assessments and utilized advanced cyber forensics tools for incident analysis.",
-      "Modeled cloud computing infrastructure setups while applying robust cyber defense strategies.",
-      "Drafted security management policies to mitigate network attacks and data breaches."
-    ]
-  },
-  {
     "title": "Research Intern (Data Pipelines & Deep Learning)",
     "college": "National Institute of Technology, Warangal",
     "location": "Warangal, Telangana",
+    "image": "/images/nit_w.png",
     "period": "May 2024 - July 2024",
     "description": "Developed and trained highly optimized deep learning models for detecting pulmonary diseases from raw X-ray data.",
     "achievements": [
       "Built resilient data processing pipelines for large-scale computer vision datasets.",
       "Architected Convolutional Neural Networks, aggressively tuning hyperparameters for optimal resource usage.",
       "Achieved a 91% accuracy rate in multi-class classification (Covid-19, Tuberculosis, Pneumonia) on production-ready models."
-    ]
-  },
-  {
-    "title": "Automation Engineering Intern",
-    "company": "SmartInternz",
-    "location": "Remote",
-    "period": "December 2023 - January 2024",
-    "description": "Engineered automated test suites for large-scale web applications to streamline CI/CD validation phases.",
-    "achievements": [
-      "Created robust, repeatable automated test scripts utilizing Katalon Studio and modern frameworks.",
-      "Dramatically improved test coverage and significantly reduced manual regression testing time.",
-      "Integrated with cross-functional teams to identify, reproduce, and resolve complex systemic defects."
     ]
   }
 ]

@@ -9,29 +9,11 @@
     "description": "Awarded for critical contributions to university-centric digital applications and platforms."
   },
   {
-    "name": "Cybersecurity Internship",
-    "issuer": "SkillDzire",
-    "description": "Completed comprehensive internship on Cybersecurity",
-    "date": "28 June 2024",
-    "certificate_id": "SDST-14555",
-    "link": "https://drive.google.com/file/d/1Fe8167w0O8b-cHNpZvoXQ2-T3fpGahZf/view?usp=drive_link",
-    "image": "/images/skilldzire_cybersecurity.jpg"
-  },
-  {
     "name": "Research Internship",
     "issuer": "Dr. Mohammad Farukh Hasmi - National Institute of Technology, Warangal",
     "description": "Conducted research on Detection of Covid-19, Tuberculosis and Pneumonia using X-ray images.",
     "date": "May 2024 - July 2024",
     "link": "https://drive.google.com/file/d/1MhgxtYribIpbph1YCwrw9Y73tHi93zIs/view?usp=drive_link",
     "image": "/images/nit_warangal.jpg"
-  },
-  {
-    "name": "Software Test Automation",
-    "issuer": "SmartInternz",
-    "description": "Completed internship on Software Test Automation using Katalon Studio",
-    "date": "4 December 2023 - 12 February 2024",
-    "certificate_id": "VIP-STA-2024-94368",
-    "link": "https://drive.google.com/file/d/1FeyMCvUxHqUwimNz1NBENURzM8lWz37S/view?usp=drive_link",
-    "image": "/images/smartinternz.png"
   }
 ]

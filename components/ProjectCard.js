@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaLock } from 'react-icons/fa';
+import Image from 'next/image';
 
-export default function ProjectCard({ title, description, techStack, link, liveLink, status, index }) {
+export default function ProjectCard({ title, description, techStack, link, liveLink, status, index, image }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -11,8 +12,15 @@ export default function ProjectCard({ title, description, techStack, link, liveL
     >
       <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
       
-      {/* Top Banner Area (Visual Weight) */}
-      <div className="h-2 w-full bg-gradient-to-r from-emerald-500/50 via-indigo-500/50 to-purple-500/50 opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
+      {/* Top Banner Area / Image Layer */}
+      {image ? (
+        <div className="h-48 w-full relative overflow-hidden group-hover:opacity-90 transition-opacity duration-500">
+           <Image src={image} alt={title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" sizes="(max-width: 768px) 100vw, 400px" />
+           <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent z-10" />
+        </div>
+      ) : (
+        <div className="h-2 w-full bg-gradient-to-r from-emerald-500/50 via-indigo-500/50 to-purple-500/50 opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
+      )}
       
       <div className="p-6 sm:p-8 flex-grow flex flex-col relative z-10">
         

@@ -8,7 +8,7 @@
       "Payment APIs",
       "Server Admin"
     ],
-    "link": "https://pay.jntugv.edu.in",
+    "link": "https://github.com/Jntu-Gurajada-Vizianagaram/jntugv-epay",
     "icon": "FaServer",
     "status": "Live",
     "liveLink": "https://pay.jntugv.edu.in"
@@ -22,7 +22,7 @@
       "React",
       "Analytics"
     ],
-    "link": "https://dmc.jntugv.edu.in",
+    "link": "",
     "icon": "FaServer",
     "status": "Live",
     "liveLink": "https://dmc.jntugv.edu.in"
@@ -49,7 +49,7 @@
       "Express",
       "MySQL"
     ],
-    "link": "https://drnd.jntugv.edu.in",
+    "link": "https://github.com/Jntu-Gurajada-Vizianagaram/jntugv-drnd",
     "icon": "FaDatabase",
     "status": "Live",
     "liveLink": "https://drnd.jntugv.edu.in"
@@ -65,7 +65,7 @@
       "Servlets",
       "JDBC"
     ],
-    "link": "https://alumni.jntugv.edu.in",
+    "link": "private",
     "icon": "FaServer",
     "liveLink": "https://alumni.jntugv.edu.in",
     "status": "Live"
@@ -78,7 +78,7 @@
       "Node.js",
       "REST API"
     ],
-    "link": "https://uyoppurtunites.jntugv.edu.in",
+    "link": "https://github.com/Anithapalavalasa/career-navigator",
     "icon": "FaServer",
     "status": "Live",
     "liveLink": "https://uyoppurtunites.jntugv.edu.in"
@@ -87,6 +87,7 @@
     "title": "PGCPAITL - Website & Application Manager",
     "description": "Developed both the main website and the internal application manager for PGCPAITL, alongside a secure Internal E-Office administrative system and the dedicated web page for the Pharmacy department.",
     "techStack": [
+      "Payment APIs",
       "Node.js",
       "Auth",
       "Internal Portals",
@@ -94,14 +95,14 @@
       "JSP",
       "Tomcat"
     ],
-    "link": "https://pgcpaitl.jntugv.edu.in",
+    "link": "https://github.com/anilsinthu114/pgcpaitl-app",
     "icon": "FaLock",
     "status": "Live",
     "liveLink": "https://pgcpaitl.jntugv.edu.in"
   },
   {
     "title": "ML Model Compression Architecture",
-    "description": "Researched and implemented adaptive compression strategies specifically for code-centric NLP models. Utilized quantization and aggressive pruning to reduce model size for constrained production environments without sacrificing performance.",
+    "description": "B.Tech Major Project: Researched and implemented adaptive compression strategies for code-centric NLP models. Overcame severe resource constraints (Intel Pentium, 8GB RAM) and strict VPS utilization limits through aggressive quantization and pruning to successfully complete model training and deployment.",
     "techStack": [
       "Python",
       "TensorFlow",
@@ -140,19 +141,6 @@
     "icon": "FaLock",
     "status": "Completed",
     "liveLink": "https://rrmregistartions.vercel.app/"
-  },
-  {
-    "title": "Real-Time Traffic Prediction Engine",
-    "description": "Integrated third-party APIs (OpenWeatherMap) and machine learning engines to aggregate real-time contextual variables for high-accuracy traffic load predictions and optimized routing suggestions.",
-    "techStack": [
-      "Python",
-      "Random Forest",
-      "Gradient Boosting",
-      "External APIs"
-    ],
-    "link": "https://github.com/anilsinthu114/real_time_traffic_mangement",
-    "icon": "FaGithub",
-    "status": "Completed"
   },
   {
     "title": "Service Request Dispatch Engine",
